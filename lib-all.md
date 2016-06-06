@@ -127,6 +127,41 @@ https://github.com/YihuaWanglv/Perfect_IM_SNS
 - 基于位置信息，空间时间结合的社交与分享的应用
 https://github.com/YihuaWanglv/Tuyi
 
+- SYTeamApp：基于环信平台进行开发，旨在打造的高效团队沟通的移动客户端，供企业内部协作使用、适应移动办公需要，提升企业沟通协同效率，增强企业办公管理效率。（当前仅实现了用户登入登出功能、通讯功能、投票功能。）
+https://github.com/YihuaWanglv/SYTeamApp
+
+- MeifuGO：An open source android app by using easemob IM SDK 
+https://github.com/YihuaWanglv/MeifuGO
+
+- fangyuanshili：环信SDK,IM,geohash,lbs 
+https://github.com/YihuaWanglv/fangyuanshili
+
+- zaina：该项目是改编自环信即时通讯云的demo改编
+https://github.com/YihuaWanglv/zaina
+
+- dianhua：基于react native 和 环信的实时通话的免费店话
+https://github.com/YihuaWanglv/dianhua
+
+- Baby：一个私密社交APP
+https://github.com/YihuaWanglv/Baby
+
+- MVPCommon：一个集成了众多开源项目的Android MVP框架以及应用搭建，全程博客更新。
+a common Architecture and project build with blogs releasing based on MVP，integrates many Open Source Projects ,to make your developing quicker and easier.
+https://github.com/YihuaWanglv/MVPCommon
+从零开始搭建android框架系列：
+http://www.jianshu.com/notebooks/3767449/latest
+
+- learnCloud：
+和应用服务器、存储服务器说再见
+再也不用租服务器，也不用写后端代码了。LeanCloud 提供一站式后端云服务，从数据存储、实时聊天、消息推送到移动统计，涵盖应用开发的多方面后端需求。
+https://leancloud.cn/
+
+- 不容错过，最全的安卓架构合集【从零开始搭建android框架系列（2）】
+http://www.jianshu.com/p/1f21e1d375aa
+
+- 安卓架构文章合集（a collection of android Architecture）
+https://github.com/YihuaWanglv/AndroidArchitectureCollection
+
 
 
 
