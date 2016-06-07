@@ -9,7 +9,9 @@
 - 搭建Git服务器
 http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000
 
-
+- gitlab centos一键安装
+http://blog.csdn.net/asd131531/article/details/42374285
+http://www.linuxidc.com/Linux/2014-08/105137.htm
 
 ### 2016-06-06
 - 一套仿 微信 IM系统 基于apache mina
