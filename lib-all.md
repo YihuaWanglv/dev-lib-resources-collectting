@@ -5,6 +5,10 @@
 
 ## 2016-06
 
+### 2016-06-15
+- 淘拍拍前端架构2.0-简介
+http://www.w3cfuns.com/notes/25101/33114eae47bbda0c50fb67eeb4a7fd6c.html
+
 ### 2016-06-07
 - 搭建Git服务器
 http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000
