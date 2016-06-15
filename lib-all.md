@@ -9,6 +9,19 @@
 - 淘拍拍前端架构2.0-简介
 http://www.w3cfuns.com/notes/25101/33114eae47bbda0c50fb67eeb4a7fd6c.html
 
+- 轻松监控上万台服务器：企业运维监控平台架构设计与实践指南
+http://dbaplus.cn/news-21-466-1.html
+
+- Mesos+Zookeeper+Marathon+Docker分布式集群管理最佳实践
+http://mp.weixin.qq.com/s?__biz=MzI4NTA1MDEwNg==&mid=2650755658&idx=1&sn=9f5e4831b2c27d66e4296c49ffcd3d7c&scene=21#wechat_redirect
+
+- 网易蜂巢微服务架构：用RabbitMQ实现轻量级通信
+http://mp.weixin.qq.com/s?__biz=MzI4NTA1MDEwNg==&mid=2650755639&idx=2&sn=0e43c1b7168dbcd60582326fb20f2f19&scene=21#wechat_redirect
+
+- 使用Vue.js从零构建GitHub项目浏览器
+http://xlbd.me/vue-demo-github-file-explorer/
+
+
 ### 2016-06-07
 - 搭建Git服务器
 http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000
