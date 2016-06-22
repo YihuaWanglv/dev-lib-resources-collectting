@@ -5,6 +5,39 @@
 
 ## 2016-06
 
+### 2016-06-22
+- 基于Dubbo框架构建分布式服务
+http://shiyanjun.cn/archives/1075.html
+
+- 高并发性能调试经验分享
+https://zhuanlan.zhihu.com/p/21348220
+
+- Java进阶（三）多线程开发关键技术
+http://www.jasongj.com/java/multi_thread/
+
+- blog kafka
+http://www.jasongj.com/tags/Kafka/
+
+- 如何构建Android MVVM应用程序
+http://www.jianshu.com/p/2fc41a310f79
+
+- 超详细React Native实现微信好友/朋友圈分享功能-Android/iOS双平台通用
+http://www.lcode.org/%E8%B6%85%E8%AF%A6%E7%BB%86react-native%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%A5%BD%E5%8F%8B%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD-androidios%E5%8F%8C%E5%B9%B3%E5%8F%B0/
+
+- SHELL编程之常用技巧
+http://mp.weixin.qq.com/s?__biz=MzIxNDMyODgyMA==&mid=2247483698&idx=1&sn=3b52493d202362aae0bf511002e63d52
+
+- 让你爱上写作的 11 款 Markdown 工具
+http://www.ifanr.com/app/665209
+
+- 基于Docker搭建Hadoop集群之升级版
+http://kiwenlau.com/2016/06/12/160612-hadoop-cluster-docker-update/
+
+- Kafka设计解析（一）- Kafka背景及架构介绍
+http://www.jasongj.com/2015/03/10/KafkaColumn1/
+
+
+
 ### 2016-06-15
 - 淘拍拍前端架构2.0-简介
 http://www.w3cfuns.com/notes/25101/33114eae47bbda0c50fb67eeb4a7fd6c.html
