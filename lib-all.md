@@ -5,6 +5,13 @@
 
 ## 2016-06
 
+### 2016-06-24
+- 【直播全文记录】 从零开始搭建高可用IM系统
+http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=206924771&idx=1&sn=4705b832c410765a3c89acfa1300b0b6&scene=21#wechat_redirect
+
+- 如何设计类似微信的多终端数据同步协议 | Grouk实践分享
+http://chuansong.me/n/1718596
+
 ### 2016-06-22
 - 基于Dubbo框架构建分布式服务
 http://shiyanjun.cn/archives/1075.html
