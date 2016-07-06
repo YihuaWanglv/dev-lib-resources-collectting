@@ -3,6 +3,13 @@
 所有有用资源在此先汇合，再细化分流归纳到别的lib集合中.
 资源含文章，git code等等..
 
+
+## 2016-07
+
+### 2016-07-06
+- 使用Jenkins搭建iOS/Android持续集成打包平台
+http://debugtalk.com/post/iOS-Android-Packing-with-Jenkins
+
 ## 2016-06
 
 ### 2016-06-24
