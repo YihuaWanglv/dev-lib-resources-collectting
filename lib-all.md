@@ -10,6 +10,18 @@
 - 使用Jenkins搭建iOS/Android持续集成打包平台
 http://debugtalk.com/post/iOS-Android-Packing-with-Jenkins
 
+- React-Native For Android 环境搭建及踩坑
+http://www.imbeta.cn/react-native-for-android-huan-jing-da-jian-ji-cai-keng.html
+
+- React Native 开发培训免费书
+https://unbug.gitbooks.io/react-native-training/content/
+
+- Android Studio插件整理
+https://ydmmocoo.github.io/2016/06/28/Android-Studio%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/
+
+- FastDFS + Nginx 反向代理缓存 安装与配置
+http://www.linux178.com/storage/fastdfs-nginx-cache.html
+
 ## 2016-06
 
 ### 2016-06-24
