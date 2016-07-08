@@ -6,6 +6,18 @@
 
 ## 2016-07
 
+### 201-07-08
+- 使用spring boot和thrift、zookeeper建立微服务
+http://www.cnblogs.com/skyblog/p/5535418.html
+
+- Jenkins+Docker搭建持续集成测试环境
+http://www.dockone.io/article/1464
+
+- spring boot+spring cloud服务化系列博客
+http://www.cnblogs.com/skyblog/category/774535.html
+
+
+
 ### 2016-07-06
 - 使用Jenkins搭建iOS/Android持续集成打包平台
 http://debugtalk.com/post/iOS-Android-Packing-with-Jenkins
