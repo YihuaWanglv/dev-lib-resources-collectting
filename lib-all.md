@@ -6,7 +6,15 @@
 
 ## 2016-07
 
-### 201-07-08
+### 2016-07-11
+- 使用 Vuex + Vue.js 构建单页应用
+https://segmentfault.com/a/1190000005891026
+https://github.com/lichenbuliren/vuex-notes-app
+
+- 
+
+
+### 2016-07-08
 - 使用spring boot和thrift、zookeeper建立微服务
 http://www.cnblogs.com/skyblog/p/5535418.html
 
