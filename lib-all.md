@@ -22,6 +22,10 @@ https://spring.io/blog/2015/01/28/the-api-gateway-pattern-angular-js-and-spring-
 https://github.com/YihuaWanglv/spring-boot-microservices
 https://github.com/YihuaWanglv/spring-cloud-microservice-example
 
+- Implementing Netflix Zuul in Spring Cloud
+http://kubecloud.io/apigatewaypattern/
+http://start.spring.io/
+
 
 ### 2016-07-11
 - 使用 Vuex + Vue.js 构建单页应用
