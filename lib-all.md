@@ -7,6 +7,23 @@
 ## 2016-07
 
 ### 2016-07-11
+- 使用API网关构建微服务
+http://www.infoq.com/cn/articles/construct-micro-service-using-api-gateway
+
+- 使用Spring Cloud和Docker构建微服务
+http://www.dockone.io/article/510
+原文链接：
+http://www.kennybastani.com/2015/07/spring-cloud-docker-microservices.html?mkt_tok=3RkMMJWWfF9wsRonuqTMZKXonjHpfsX57ukoWaC0lMI%2F0ER3fOvrPUfGjI4ATcdqI%2BSLDwEYGJlv6SgFQ7LMMaZq1rgMXBk%3D
+
+- The API Gateway Pattern: Angular JS and Spring Security Part IV
+https://spring.io/blog/2015/01/28/the-api-gateway-pattern-angular-js-and-spring-security-part-iv
+
+- git demo for spring-boot-microservices
+https://github.com/YihuaWanglv/spring-boot-microservices
+https://github.com/YihuaWanglv/spring-cloud-microservice-example
+
+
+### 2016-07-11
 - 使用 Vuex + Vue.js 构建单页应用
 https://segmentfault.com/a/1190000005891026
 https://github.com/lichenbuliren/vuex-notes-app
@@ -14,7 +31,6 @@ https://github.com/lichenbuliren/vuex-notes-app
 - 两篇关于微服务api gateway的著名文章
 http://microservices.io/patterns/apigateway.html
 https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
-
 
 
 ### 2016-07-08
