@@ -11,7 +11,10 @@
 https://segmentfault.com/a/1190000005891026
 https://github.com/lichenbuliren/vuex-notes-app
 
-- 
+- 两篇关于微服务api gateway的著名文章
+http://microservices.io/patterns/apigateway.html
+https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
+
 
 
 ### 2016-07-08
