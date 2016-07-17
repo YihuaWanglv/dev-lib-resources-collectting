@@ -23,7 +23,8 @@ http://dangdangdotcom.github.io/dubbox/rest.html
 - 使用JavaConfig方式配置dubbox
 http://dangdangdotcom.github.io/dubbox/java-config.html
 
-
+- Microservices with Spring
+https://spring.io/blog/2015/07/14/microservices-with-spring
 
 ### 2016-07-14
 - Import/Read excel file 2003 or 2007 with Spring MVC
