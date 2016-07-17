@@ -10,6 +10,19 @@
 - 使用 Vaadin 实现全堆栈 Java Web 开发
 http://www.ibm.com/developerworks/cn/java/j-full-stack-java-web-dev-vaadin/
 
+- Creating CRUD UI with Vaadin
+https://spring.io/guides/gs/crud-with-vaadin/
+git clone https://github.com/spring-guides/gs-crud-with-vaadin.git
+
+- 当当网开源Dubbox，扩展Dubbo服务框架支持REST风格远程调用
+http://www.infoq.com/cn/news/2014/10/dubbox-open-source
+
+- 在Dubbo中开发REST风格的远程调用（RESTful Remoting）
+http://dangdangdotcom.github.io/dubbox/rest.html
+
+- 使用JavaConfig方式配置dubbox
+http://dangdangdotcom.github.io/dubbox/java-config.html
+
 
 
 ### 2016-07-14
