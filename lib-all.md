@@ -6,6 +6,8 @@
 
 ## 2016-07
 
+### 2016-07-19
+
 ### 2016-07-16
 - 使用 Vaadin 实现全堆栈 Java Web 开发
 http://www.ibm.com/developerworks/cn/java/j-full-stack-java-web-dev-vaadin/
