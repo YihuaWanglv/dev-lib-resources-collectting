@@ -7,6 +7,8 @@
 ## 2016-07
 
 ### 2016-07-19
+- 微服务架构的分布式事务解决方案
+http://www.roncoo.com/details?cid=7ae3d7eddc4742f78b0548aa8bd9ccdb
 
 ### 2016-07-16
 - 使用 Vaadin 实现全堆栈 Java Web 开发
