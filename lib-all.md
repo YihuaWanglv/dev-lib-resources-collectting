@@ -7,6 +7,23 @@
 ## 2016-07
 
 ### 2016-07-21
+- Spring Boot应用的测试——Mockito
+http://www.jianshu.com/p/972cd6b93206
+
+- 利用Mockito模拟DB
+http://www.jianshu.com/p/c1c495f231ea
+
+- 在Spring Boot项目中使用Spock框架
+http://www.jianshu.com/p/f1e354d382cd
+
+- Spring Boot Testing
+http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
+
+- Integration Testing a Spring Boot Application
+https://www.jayway.com/2014/07/04/integration-testing-a-spring-boot-application/
+
+
+### 2016-07-21
 - Growth: 全栈增长工程师指南
 http://growth.phodal.com/#
 
