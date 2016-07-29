@@ -6,6 +6,10 @@
 
 ## 2016-07
 
+### 2016-07-29
+- 搭建ElasticSearch-2.x Logstash-2.x Kibana-4.5.x Kafka为消息中心的ELK日志平台
+https://www.iamle.com/archives/2058.html
+
 ### 2016-07-23
 - discover meteor
 http://zh.discovermeteor.com/chapters/introduction/
