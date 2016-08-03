@@ -3,6 +3,16 @@
 所有有用资源在此先汇合，再细化分流归纳到别的lib集合中.
 资源含文章，git code等等..
 
+## 2016-08
+
+### 2016-08-03
+- 解放程序猿（媛）的双手—iOS UI自动化测试
+http://tmq.qq.com/2016/06/uitestingiosautomation/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- 5小时搞定谷歌原生自动化框架UiAutomator1.0
+http://tmq.qq.com/2016/06/androidautotestframwork-uiautomator/
+
+
 
 ## 2016-07
 
