@@ -12,6 +12,8 @@ http://tmq.qq.com/2016/06/uitestingiosautomation/?hmsr=toutiao.io&utm_medium=tou
 - 5小时搞定谷歌原生自动化框架UiAutomator1.0
 http://tmq.qq.com/2016/06/androidautotestframwork-uiautomator/
 
+- 有赞延迟队列设计
+http://tech.youzan.com/queuing_delay/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
 
 
 ## 2016-07
