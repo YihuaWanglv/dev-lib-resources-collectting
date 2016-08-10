@@ -262,7 +262,7 @@ public void transform_list_to_map () {
     System.out.println(investmentMap);
     
 }
-````
+```
 Output
 ```
 {
@@ -426,7 +426,50 @@ public abstract class AbstractIntegrationTest {
 ```
 This entry was posted in Coding, REST, Spring, Testing and tagged rest, Spring Boot, spring integration by Ties van de Ven. Bookmark the permalink.
 
-5. gg
+5. What's the simplest way to print a Java array?
+Examples:
+- Simple Array:
+```
+String[] array = new String[] {"John", "Mary", "Bob"};
+System.out.println(Arrays.toString(array));
+```
+Output:
+```
+[John, Mary, Bob]
+```
+
+- Nested Array:
+```
+String[][] deepArray = new String[][] {{"John", "Mary"}, {"Alice", "Bob"}};
+System.out.println(Arrays.toString(deepArray));
+//output: [[Ljava.lang.String;@106d69c, [Ljava.lang.String;@52e922]
+System.out.println(Arrays.deepToString(deepArray));
+```
+Output:
+```
+[[John, Mary], [Alice, Bob]]
+```
+
+- double Array:
+```
+double[] doubleArray = { 7.0, 9.0, 5.0, 1.0, 3.0 };
+System.out.println(Arrays.toString(doubleArray));
+```
+Output:
+```
+[7.0, 9.0, 5.0, 1.0, 3.0 ]
+```
+- int Array:
+```
+int[] intArray = { 7, 9, 5, 1, 3 };
+System.out.println(Arrays.toString(intArray));
+```
+Output:
+```
+[7, 9, 5, 1, 3 ]
+```
+
+
 6. gg
 7. gg
 8. gg

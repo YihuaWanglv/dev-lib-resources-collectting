@@ -5,6 +5,32 @@
 
 ## 2016-08
 
+### 2016-08-10
+- Sharding-JDBC
+http://dangdangdotcom.github.io/sharding-jdbc/
+
+- [blog]庄周梦蝶
+http://fnil.net/
+
+- Atlas是由 Qihoo 360公司Web平台部基础架构团队开发维护的一个基于MySQL协议的数据中间层项目
+https://github.com/Qihoo360/Atlas/blob/master/README_ZH.md
+https://github.com/Qihoo360/Atlas
+
+- RDBMS分布式两阶段提交与Zookeeper的Paxos同步算法
+http://blog.csdn.net/victory0508/article/details/48003527
+
+- 分布式系统的事务处理
+http://coolshell.cn/articles/10910.html
+
+- 分布式事务 - 最终一致性(一)
+https://segmentfault.com/a/1190000005969526
+
+- 介绍下用消息队列实现分布式事务 
+http://blog.chinaunix.net/uid-20047304-id-4515035.html
+
+
+
+
 ### 2016-08-03
 - 解放程序猿（媛）的双手—iOS UI自动化测试
 http://tmq.qq.com/2016/06/uitestingiosautomation/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
@@ -14,6 +40,7 @@ http://tmq.qq.com/2016/06/androidautotestframwork-uiautomator/
 
 - 有赞延迟队列设计
 http://tech.youzan.com/queuing_delay/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
 
 
 ## 2016-07
