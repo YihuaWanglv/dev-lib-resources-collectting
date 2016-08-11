@@ -5,6 +5,33 @@
 
 ## 2016-08
 
+### 2016-08-11
+- Java自动化测试框架TestNG之入门篇
+http://www.jianshu.com/p/a74adec98eff
+
+- Arquillian Guides
+http://arquillian.org/guides/getting_started/?utm_source=cta
+
+- 自动化单元测试实践之路
+http://www.infoq.com/cn/articles/road-of-automated-unit-testing-practices
+
+- 8个超实用的Java测试工具和框架
+http://www.imooc.com/article/1154
+
+- 使用 Selenium 实现基于 Web 的自动化测试
+https://www.ibm.com/developerworks/cn/web/1209_caimin_seleniumweb/
+
+- 用 STAF+Selenium 实现并行的自动化测试框架
+https://www.ibm.com/developerworks/cn/java/j-lo-parallelautotest/
+
+- Java Fluent Restful API自动化测试框架
+http://www.cnblogs.com/jinsdu/p/4606113.html
+
+- HTTP API自动化测试从手工到平台的演变
+http://www.infoq.com/cn/articles/http-api-automated-test-from-manual-to-platform
+
+
+
 ### 2016-08-10
 - Sharding-JDBC
 http://dangdangdotcom.github.io/sharding-jdbc/
