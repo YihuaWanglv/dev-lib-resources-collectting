@@ -30,6 +30,12 @@ http://www.cnblogs.com/jinsdu/p/4606113.html
 - HTTP API自动化测试从手工到平台的演变
 http://www.infoq.com/cn/articles/http-api-automated-test-from-manual-to-platform
 
+- 快速入门测试驱动开发（TDD）
+http://wwsun.github.io/posts/tdd.html
+
+- 使用 REST-Assured 测试 REST API 的进阶技巧和最佳实践
+https://www.ibm.com/developerworks/cn/java/j-lo-rest-assured2/
+
 
 
 ### 2016-08-10
