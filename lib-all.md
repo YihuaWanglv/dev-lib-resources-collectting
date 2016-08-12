@@ -5,6 +5,32 @@
 
 ## 2016-08
 
+### 2016-08-12
+- Base: An Acid Alternative
+http://queue.acm.org/detail.cfm?id=1394128
+
+- 分布式事务演进
+http://yongpoliu.com/distributed-tx-evolution/
+
+- 系统幂等以及常用实现方式
+http://yongpoliu.com/idempotent/
+
+- 实现maven依赖的全局排除
+http://maven.apache.org/enforcer/maven-enforcer-plugin/
+http://yongpoliu.com/maven-global-exclude/
+
+- bi分析统计工具
+http://www.tableau.com/zh-cn/products/cloud-bi
+
+- **如何用消息系统避免分布式事务？**
+http://www.cnblogs.com/LBSer/p/4715395.html
+
+- MySQL两阶段提交
+http://blog.csdn.net/jesseyoung/article/details/37970271
+
+
+
+
 ### 2016-08-11
 - Java自动化测试框架TestNG之入门篇
 http://www.jianshu.com/p/a74adec98eff
