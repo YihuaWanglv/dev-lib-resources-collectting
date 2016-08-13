@@ -5,6 +5,16 @@
 
 ## 2016-08
 
+### 2016-08-13
+爬虫专题
+- WebMagic
+http://webmagic.io/docs/zh/
+https://github.com/YihuaWanglv/webmagic
+
+
+
+
+
 ### 2016-08-12
 - Base: An Acid Alternative
 http://queue.acm.org/detail.cfm?id=1394128
