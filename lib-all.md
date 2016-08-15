@@ -5,6 +5,34 @@
 
 ## 2016-08
 
+### 2016-08-15
+- 美团点评技术团队
+http://tech.meituan.com/
+
+- 消息队列设计精要
+http://tech.meituan.com/mq-design.html
+
+- 阿里中间件团队博客
+http://jm.taobao.org/
+
+- Distributed transactions with multiple databases, Spring Boot, Spring Data JPA and Atomikos
+http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/
+https://github.com/fabiomaffioletti/mul-at
+
+- GitHub 中国区前 100 名到底是什么样的人?
+http://mt.sohu.com/20160407/n443539407.shtml?qq-pf-to=pcqq.discussion
+
+- Spring分布式事务配置(atomikos)
+http://sadwxqezc.github.io/HuangHuanBlog/framework/2016/05/29/Spring%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%85%8D%E7%BD%AE.html?utm_source=tuicool&utm_medium=referral
+
+- 基于spring boot项目的多数据源配置与分布式事务处理总结
+http://hungryant.github.io/java/2015/11/26/java-spring-boot-jta.html
+
+
+
+
+
+
 ### 2016-08-13
 爬虫专题
 - WebMagic
@@ -12,11 +40,8 @@ http://webmagic.io/docs/zh/
 https://github.com/YihuaWanglv/webmagic
 
 
-
 - Maven 那点事儿
 http://my.oschina.net/huangyong/blog/194583
-
-
 
 
 
