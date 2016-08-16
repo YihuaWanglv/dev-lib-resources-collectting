@@ -5,6 +5,30 @@
 
 ## 2016-08
 
+### 2016-08-16
+- Distributed transactions with multiple databases, Spring Boot, Spring Data JPA and Atomikos
+http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/
+https://github.com/fabiomaffioletti/mul-at
+
+- JTA 深度历险 - 原理与实现
+http://www.ibm.com/developerworks/cn/java/j-lo-jta/
+
+- Java事务之八——分布式事务(Spring+JTA+Atomikos+Hibernate+JMS)
+http://www.cnblogs.com/davenkin/archive/2013/03/19/java-tranaction-8.html
+
+- 如何实现XA式、非XA式Spring分布式事务
+http://www.importnew.com/15812.html
+
+- Java事务设计策略 微型书
+http://www.infoq.com/cn/minibooks/JTDS#idp_register
+
+- 【转】JDBC事务和JTA （XA）事务
+http://kazge.com/archives/962.html
+
+
+
+
+
 ### 2016-08-15
 - 美团点评技术团队
 http://tech.meituan.com/
