@@ -1436,25 +1436,13 @@ Another solution, suggested by @Parvez, without Apache Commons IO dependency is
     </constructor-arg>
 </bean>
 ```
-47. 发布系统编译日志共享
-\\192.168.1.222
-用户：mvnlog
-密码：mvnlog12368
+
 48. maven全局排除工具
 http://maven.apache.org/enforcer/maven-enforcer-plugin/
 实现maven依赖的全局排除
 http://yongpoliu.com/maven-global-exclude/
 
-49. 消息推送应用注册的后台
-http://192.168.1.206/push/index.php
-fengche
-fengche!@#push
 
-
-50. 日志：
-http://192.168.1.205:8880/
-http://dev.carisok.com/log
-从现在开始，请大家使用新的日志系统，原日志系统将关闭
 
 
 
