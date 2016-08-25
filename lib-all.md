@@ -5,6 +5,66 @@
 
 ## 2016-08
 
+### 2016-08-25
+- ELK下载
+https://www.elastic.co/downloads
+
+- ELK+Kafka 企业日志收集平台(一)
+http://blog.sctux.com/?p=445
+
+- ELK+Kafka 企业日志收集平台(二)
+http://blog.sctux.com/?p=451
+
+- https://www.quora.com/What-are-some-other-great-free-web-tools-like-Trello
+
+
+
+
+### 2016-08-22
+- 微服务架构下的开发部署实践(1)
+https://zhuanlan.zhihu.com/p/21563604?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- 领域驱动设计和实践
+http://www.infoq.com/cn/articles/cjq-ddd
+
+- 教你成为全栈工程师(Full Stack Developer) 四十五-一文读懂hadoop、hbase、hive、spark分布式系统架构
+http://www.shareditor.com/blogshow/?blogId=96&hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- 聊一聊排序算法
+http://mp.weixin.qq.com/s?__biz=MzAxMjA5ODQwMQ==&mid=2455058728&idx=1&sn=6b0e55cc9a3c34775013f39ab08a6ac7#rd
+https://github.com/barretlee/algorithms
+
+- 最简MVP框架
+http://www.jianshu.com/p/e0feb16105f9?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+https://github.com/wolearn/MvpFrame
+
+- 可用性高达五个9！支付系统高可用架构设计实战
+http://dbaplus.cn/news-21-591-1.html
+
+- Gson源码分析以其所包含注解的用法
+http://lliuguangbo.github.io/2016/08/07/Gson-Source-Code-Analyze-One/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- React Native开源项目-嘎嘎商城客户端(持续更新中)
+http://www.lcode.org/react-native-source-gagamall/
+https://github.com/jiangqqlmj/GaGaMall
+
+- ActiveMQ高可用集群方案
+http://wosyingjun.iteye.com/blog/2314683
+
+- gitbook Zookeeper:分布式进程协同
+https://www.gitbook.com/book/mymonkey110/zookeeper-distributed-process-coordination/details
+
+
+
+
+### 2016-08-16
+- 全面分析 Spring 的编程式事务管理及声明式事务管理
+https://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/
+
+
+
+
+
 ### 2016-08-16
 - Distributed transactions with multiple databases, Spring Boot, Spring Data JPA and Atomikos
 http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/
