@@ -5,6 +5,26 @@
 
 ## 2016-08
 
+
+### 2016-08-26
+- RabbitMQ Configuration
+https://www.rabbitmq.com/configure.html
+
+- RabbitMQ用户角色及权限控制
+http://blog.csdn.net/zyz511919766/article/details/42292655
+
+- RabbitMQ Installing on Windows
+https://www.rabbitmq.com/install-windows.html
+
+- RabbitMQ Installing on RPM-based Linux (CentOS, Fedora, OpenSuse, RedHat)
+https://www.rabbitmq.com/install-rpm.html
+
+- CentOS6.5安装RabbitMQ
+http://www.jianshu.com/p/0d3bf6402e15
+
+
+
+
 ### 2016-08-25
 - ELK下载
 https://www.elastic.co/downloads

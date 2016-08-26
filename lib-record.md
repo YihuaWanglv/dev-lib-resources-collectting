@@ -1511,5 +1511,36 @@ yum install logstash
 ```
 
 
+53. linux关闭防火墙
+一、关闭防火墙
+1、重启后永久性生效：
+开启：chkconfig iptables on
+关闭：chkconfig iptables off
+2、即时生效，重启后失效：
+开启：service iptables start
+关闭：service iptables stop
+在开启了防火墙时，做如下设置，开启相关端口，修改 /etc/sysconfig/iptables 文件，添加以下内容：
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT   #允许80端口通过防火墙
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT   #允许3306端口通过防火墙
+备注：很多网友把这两条规则添加到防火墙配置的最后一行，导致防火墙启动失败，
+正确的应该是添加到默认的22端口这条规则的下面
+
+
+54. java笔试面试高级内容
+```
+List,Set,Map用法以及区别-http://j2eemylove.iteye.com/blog/1195823
+Hash算法-http://www.cnblogs.com/wangjy/archive/2011/09/08/2171638.html
+单例模式的七种写法-http://cantellow.iteye.com/blog/838473
+java中的匿名内部类总结 - http://www.cnblogs.com/nerxious/archive/2013/01/25/2876489.html
+Java 内部类种类及使用解析 - http://www.cnblogs.com/mengdd/archive/2013/02/08/2909307.html
+hibernate级联保存 - http://www.iteye.com/topic/2312?page=2
+springsecurity3- http://www.mossle.com/docs/springsecurity3/html/technical-overview.html
+HashMap实现原理分析 - http://blog.csdn.net/vking_wang/article/details/14166593
+使用简单的 5 个步骤设置 Web 服务器集群 - http://www.ibm.com/developerworks/cn/linux/l-linux-ha/
+java nio实现非阻塞Socket通信实例 - http://blog.csdn.net/x605940745/article/details/14123343
+Java深入 - Java Socket和NIO - http://blog.csdn.net/initphp/article/details/39271755
+```
+
+
 
 
