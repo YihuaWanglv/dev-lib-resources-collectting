@@ -1,0 +1,1784 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAzUABAAAAAAFNgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABwAAAAcZMzaOEdERUYAAAGIAAAAHQAAACAAOQAET1MvMgAAAagAAAA+AAAAYHqhde9jbWFwAAAB6AAAAFIAAAFa4azkLWN2dCAAAAI8AAAAKAAAACgFgwioZnBnbQAAAmQAAAGxAAACZVO0L6dnYXNwAAAEGAAAAAgAAAAIAAAAEGdseWYAAAQgAAAFDgAACMz7eroHaGVhZAAACTAAAAAwAAAANgWEOEloaGVhAAAJYAAAAB0AAAAkDGEGa2htdHgAAAmAAAAAEwAAADBEgAAQbG9jYQAACZQAAAAaAAAAGgsICJBtYXhwAAAJsAAAACAAAAAgASgBD25hbWUAAAnQAAACZwAABOD4no+3cG9zdAAADDgAAABsAAAAmF+yXM9wcmVwAAAMpAAAAC4AAAAusPIrFAAAAAEAAAAAyYlvMQAAAADLVHQgAAAAAM/u9uZ4nGNgZGBg4ANiCQYQYGJgBEJuIGYB8xgABMMAPgAAAHicY2Bm42OcwMDKwMLSw2LMwMDQBqGZihmiwHycoKCyqJjB4YPDh4NsDP+BfNb3DIuAFCOSEgUGRgAKDgt4AAB4nGNgYGBmgGAZBkYGEAgB8hjBfBYGCyDNxcDBwMTA9MHhQ9SHrA8H//9nYACyQyFs/sP86/kX8HtB9UIBIxsDXICRCUgwMaACRoZhDwA3fxKSAAAAAAHyAHABJQB/AIEAdAFGAOsBIwC/ALgAxACGAGYAugBNACcA/wCIeJxdUbtOW0EQ3Q0PA4HE2CA52hSzmZDGe6EFCcTVjWJkO4XlCGk3cpGLcQEfQIFEDdqvGaChpEibBiEXSHxCPiESM2uIojQ7O7NzzpkzS8qRqnfpa89T5ySQwt0GzTb9Tki1swD3pOvrjYy0gwdabGb0ynX7/gsGm9GUO2oA5T1vKQ8ZTTuBWrSn/tH8Cob7/B/zOxi0NNP01DoJ6SEE5ptxS4PvGc26yw/6gtXhYjAwpJim4i4/plL+tzTnasuwtZHRvIMzEfnJNEBTa20Emv7UIdXzcRRLkMumsTaYmLL+JBPBhcl0VVO1zPjawV2ys+hggyrNgQfYw1Z5DB4ODyYU0rckyiwNEfZiq8QIEZMcCjnl3Mn+pED5SBLGvElKO+OGtQbGkdfAoDZPs/88m01tbx3C+FkcwXe/GUs6+MiG2hgRYjtiKYAJREJGVfmGGs+9LAbkUvvPQJSA5fGPf50ItO7YRDyXtXUOMVYIen7b3PLLirtWuc6LQndvqmqo0inN+17OvscDnh4Lw0FjwZvP+/5Kgfo8LK40aA4EQ3o3ev+iteqIq7wXPrIn07+xWgAAAAABAAH//wAPeJyFlctvG1UUh+/12DPN1B7P3JnYjj2Ox4/MuDHxJH5N3UdaEUQLqBIkfQQioJWQ6AMEQkIqsPGCPwA1otuWSmTBhjtps2ADWbJg3EpIXbGouqSbCraJw7kzNo2dRN1cnXN1ZvT7zuuiMEI7ncizyA0URofRBJpCdbQuIFShYY+GZRrxMDVtih5TwQPHtXDFFSIKoWIbuREBjLH27Ny4MsbVx+uOJThavebgVrNRLAiYx06rXsvhxLgWx9xpfHdrs/ekc2Pl2cpPCVEITQpwbj8VQhfXSq2m+Wxqaq2D73Kne5e3NjHqQNj3CRYlJlgUl/jRNP+2Gs2pNYRQiOnmUaQDqm30KqKiTTWPWjboxnTWpvgxjXo0KrtZXAHt7hwIz0YVcj88JnKlJKi3NPAwLyDwZudSmJSMMJFDYaOkaol6XtESx3Gt1VTytdZJ3DCLeaVhVnCBH1fycHTxFXwPX+l2e3d6H/TufGGmMTLTnbSJUdo00zuBswMO/nl3YLeL/wnu9/limCuD3vC54h5NBVz6Li414AI8Vx3iiosKcQXUbrvhFFiYb++HN4DaF4XzFW0fIN4XDWJ3a3XQoq9V8WiyRmdsatV9xUcHims1JloH0YUa090G3Tro3mC6c01f+YwCPquINr1PTaCP6rVTOOmf0GE2dBc7zWIhji3/5MchSuBHgDbU99RMWt3YUNMZMJmx92YP6NsHx/5/M1yvInpnkIOM3Z8fA3JQ2lW1RFC1KaBPDFXNAHYYvGy73aYZZZ3HifbeuiVZCpwA3oQBs0wGPYJbJfg60xrKEbKiNtTe1adwrpBRwlAuQ3q3VRaX0QmQ9a49BTSCuF1MLfQ6+tinOubRBZuWPNoMevGMT+V41KitO1is3D/tpMcq1JHZqDHGs8DoYGDkxJgKjHROeTCmhZvzPm9pod+ltKm4PN7Dyvvldlpsg8D+4AUJZ3F/JBstZz7cbFRxsaAGV6yX/dkcycWf8eS3QlQea+YLjdm3yrOnrhFpUyKVvFE4lpv4bO3Svx/6F/4xmiDu/RT5iI++lko18mY1oX+5UGKR6kmVjM/Zb76yfHtxy+h/SyQ0lLdpdKy/lWB6szatetQJ8nZ80A2Qt6ift6gJeavU3BO4gtxs/KCtNPVibCtYCWY3SIlSBPKXZALXiIR9oZeJ1AuMyxLpHIy/yO7vSiSE+kZvk0ihJ30HgHfzZtEMmvV58x6dtqns0XTAW7Vdm4HJ04OCp/crOO7rd9SGxQAE/mVA9xRN+kVSMRFF6S9JFGUtthkjBA5tFCWc2l4V43Ex9GmUP3SI37Jjmir9KqlaDJ4S4JB3vuM/jzyH1+8MuoZ+QGzfnvPoJb96cZlWjMcKLfgDwB7E634JTY+asjsPzS5CiVnEWY+KsrsIN5rn3mAPjqmQBxGjcGKB9f9ZxY3mYC2L85CJ2FXIxKKyHk+dg0FHbuEc7D5NzWUX32WxFcWNGRAbvwSx0RmIXVDuYySafluQBmzA/ssqJAMLnli+WIC90Gw4lm85wcp0qjArEDPJJV/sSx4P9ungTpgMw5gVC1XO4uULq0s3v1rqLi0vX/z65vlH50f8T/RHmSPTk5xxWBWOluMT6WiOy+tdvWxlV/XQb3o3c6Ssr+r6I708GsX9/nzp1tKFh0s3v7m4vAy/Hnb/KMOvc1wump6Il48K6mGDy02X9Yd65pa+nQIjk76lWxCkG8NBCP0HQS9IpAAAeJxjYGRgYGBhcCrq214Qz2/zlUGenQEEzr/77oug/zewFbB+AHI5GJhAogBwKQ0qeJxjYGRgYH3/P46BgZ0BBNgKGBgZUAEPAE/7At0AAAB4nGNngAB2IGYjhBsYBAAIYADVAAAAAAAAAAAAAFwAyAEeAaACCgKmAx4DggRmAAAAAQAAAAwAagAEAAAAAAACAAEAAgAWAAABAAChAAAAAHiclZI7bxQxFIWPd/JkUYQChEhIyAVKgdBMskm1QkKrRETpQiLRUczueB/K7HhlOxttg8LvoKPgP9DxFxANDR0tHRWi4NjrPIBEgh1p/dm+vufcawNYFWsQmP6e4jSyQB2fI9cwj++RE9wTjyPP4LYoI89iWbyLPIe6+Bh5Hs9rryMv4GbtW+RF3EhuRa7jbrIbeQkPkjdUETOLnL0Kip4FVvAhco1RXyMnSPEz8gzWxE7kWTwUp5HnsCLeR57HW/El8gJWa58iL+JO7UfkOh4l9yMv4UnyEtvQGGECgwF66MNBooF1bGCL1ELB/TYU+ZBRlvsKQ44Se6jQ4a7hef+fh72Crv25kp+8lNWGmeKoOI5jJLb1aGIGvb6TjfWNLdkqdFvJw4l1amjlXtXRZqRN7lSRylZZyhBqpVFWmTEXgWfUrpi/hZOQXdOd4rKuXOtEWT3k5IArPRzTUU5tHKjecZkTpnVbNOnt6jzN8240GD4xtikvZW56043rPMg/dS+dlOceXoR+WPbJ55Dsekq1lJpnypsMUsYOdCW30o103Ytu/lvh+5RWFLfBjm9/N8hJntPhvx92rnoE/kyHdGasGy754kw36vsVf/lFeBi+0COu+cfgQr42G3CRpeLoZ53gmfe3X6rcKt5oVxnptHR9JS8ehVUd5wvvahN2uqxOOpMXapibI5k7Zwbt4xBSaTfoKBufhAnO/uqNcfK8OTs0OQ6l7JIqFjDhYj5WcjevCnI/1DDiI8j4ndWb/5YzDZWh79yomWXeXj7Nnw70/2TIeFPTrlSh89k1ObOSRVZWZfgF0r/zJQB4nG2JUQuCQBCEd07TTg36fb2IyBaLd3vWaUh/vmSJnvpgmG8YcmS8X3Shf3R7QA4OBUocUKHGER5NNbOOEvwc1txnuWkTRb/aPjimJ5vXabI+3VfOiyS15UWvyezM2xiGOPyuMohOH8O8JiO4Af+FsAGNAEuwCFBYsQEBjlmxRgYrWCGwEFlLsBRSWCGwgFkdsAYrXFhZsBQrAAA=) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>lib-all</title></head><body><article class="markdown-body"><h1 id="lib-all"><a name="user-content-lib-all" href="#lib-all" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>lib-all</h1>
+<p>此集合汇总左右开发资源.<br />
+所有有用资源在此先汇合，再细化分流归纳到别的lib集合中.<br />
+资源含文章，git code等等..</p>
+<h2 id="2016-09"><a name="user-content-2016-09" href="#2016-09" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-09</h2>
+<h3 id="2016-09-01"><a name="user-content-2016-09-01" href="#2016-09-01" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-09-01</h3>
+<ul>
+<li>ELKstack 中文指南<br />
+<a href="https://www.gitbook.com/book/chenryn/elk-stack-guide-cn/details">https://www.gitbook.com/book/chenryn/elk-stack-guide-cn/details</a></li>
+</ul>
+<h3 id="2016-09-06"><a name="user-content-2016-09-06" href="#2016-09-06" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-09-06</h3>
+<ul>
+<li>互联网项目架构经验分享</li>
+</ul>
+<h2 id="2016-08"><a name="user-content-2016-08" href="#2016-08" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08</h2>
+<h3 id="2016-08-26"><a name="user-content-2016-08-26" href="#2016-08-26" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-26</h3>
+<ul>
+<li>
+<p>RabbitMQ Configuration<br />
+<a href="https://www.rabbitmq.com/configure.html">https://www.rabbitmq.com/configure.html</a></p>
+</li>
+<li>
+<p>RabbitMQ用户角色及权限控制<br />
+<a href="http://blog.csdn.net/zyz511919766/article/details/42292655">http://blog.csdn.net/zyz511919766/article/details/42292655</a></p>
+</li>
+<li>
+<p>RabbitMQ Installing on Windows<br />
+<a href="https://www.rabbitmq.com/install-windows.html">https://www.rabbitmq.com/install-windows.html</a></p>
+</li>
+<li>
+<p>RabbitMQ Installing on RPM-based Linux (CentOS, Fedora, OpenSuse, RedHat)<br />
+<a href="https://www.rabbitmq.com/install-rpm.html">https://www.rabbitmq.com/install-rpm.html</a></p>
+</li>
+<li>
+<p>CentOS6.5安装RabbitMQ<br />
+<a href="http://www.jianshu.com/p/0d3bf6402e15">http://www.jianshu.com/p/0d3bf6402e15</a></p>
+</li>
+</ul>
+<h3 id="2016-08-25"><a name="user-content-2016-08-25" href="#2016-08-25" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-25</h3>
+<ul>
+<li>
+<p>ELK下载<br />
+<a href="https://www.elastic.co/downloads">https://www.elastic.co/downloads</a></p>
+</li>
+<li>
+<p>ELK+Kafka 企业日志收集平台(一)<br />
+<a href="http://blog.sctux.com/?p=445">http://blog.sctux.com/?p=445</a></p>
+</li>
+<li>
+<p>ELK+Kafka 企业日志收集平台(二)<br />
+<a href="http://blog.sctux.com/?p=451">http://blog.sctux.com/?p=451</a></p>
+</li>
+<li>
+<p><a href="https://www.quora.com/What-are-some-other-great-free-web-tools-like-Trello">https://www.quora.com/What-are-some-other-great-free-web-tools-like-Trello</a></p>
+</li>
+</ul>
+<h3 id="2016-08-22"><a name="user-content-2016-08-22" href="#2016-08-22" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-22</h3>
+<ul>
+<li>
+<p>微服务架构下的开发部署实践(1)<br />
+<a href="https://zhuanlan.zhihu.com/p/21563604?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io">https://zhuanlan.zhihu.com/p/21563604?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></p>
+</li>
+<li>
+<p>领域驱动设计和实践<br />
+<a href="http://www.infoq.com/cn/articles/cjq-ddd">http://www.infoq.com/cn/articles/cjq-ddd</a></p>
+</li>
+<li>
+<p>教你成为全栈工程师(Full Stack Developer) 四十五-一文读懂hadoop、hbase、hive、spark分布式系统架构<br />
+<a href="http://www.shareditor.com/blogshow/?blogId=96&amp;hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io">http://www.shareditor.com/blogshow/?blogId=96&amp;hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></p>
+</li>
+<li>
+<p>聊一聊排序算法<br />
+<a href="http://mp.weixin.qq.com/s?__biz=MzAxMjA5ODQwMQ==&amp;mid=2455058728&amp;idx=1&amp;sn=6b0e55cc9a3c34775013f39ab08a6ac7#rd">http://mp.weixin.qq.com/s?__biz=MzAxMjA5ODQwMQ==&amp;mid=2455058728&amp;idx=1&amp;sn=6b0e55cc9a3c34775013f39ab08a6ac7#rd</a><br />
+<a href="https://github.com/barretlee/algorithms">https://github.com/barretlee/algorithms</a></p>
+</li>
+<li>
+<p>最简MVP框架<br />
+<a href="http://www.jianshu.com/p/e0feb16105f9?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io">http://www.jianshu.com/p/e0feb16105f9?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a><br />
+<a href="https://github.com/wolearn/MvpFrame">https://github.com/wolearn/MvpFrame</a></p>
+</li>
+<li>
+<p>可用性高达五个9！支付系统高可用架构设计实战<br />
+<a href="http://dbaplus.cn/news-21-591-1.html">http://dbaplus.cn/news-21-591-1.html</a></p>
+</li>
+<li>
+<p>Gson源码分析以其所包含注解的用法<br />
+<a href="http://lliuguangbo.github.io/2016/08/07/Gson-Source-Code-Analyze-One/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io">http://lliuguangbo.github.io/2016/08/07/Gson-Source-Code-Analyze-One/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></p>
+</li>
+<li>
+<p>React Native开源项目-嘎嘎商城客户端(持续更新中)<br />
+<a href="http://www.lcode.org/react-native-source-gagamall/">http://www.lcode.org/react-native-source-gagamall/</a><br />
+<a href="https://github.com/jiangqqlmj/GaGaMall">https://github.com/jiangqqlmj/GaGaMall</a></p>
+</li>
+<li>
+<p>ActiveMQ高可用集群方案<br />
+<a href="http://wosyingjun.iteye.com/blog/2314683">http://wosyingjun.iteye.com/blog/2314683</a></p>
+</li>
+<li>
+<p>gitbook Zookeeper:分布式进程协同<br />
+<a href="https://www.gitbook.com/book/mymonkey110/zookeeper-distributed-process-coordination/details">https://www.gitbook.com/book/mymonkey110/zookeeper-distributed-process-coordination/details</a></p>
+</li>
+</ul>
+<h3 id="2016-08-16"><a name="user-content-2016-08-16" href="#2016-08-16" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-16</h3>
+<ul>
+<li>全面分析 Spring 的编程式事务管理及声明式事务管理<br />
+<a href="https://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/">https://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/</a></li>
+</ul>
+<h3 id="2016-08-16_1"><a name="user-content-2016-08-16_1" href="#2016-08-16_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-16</h3>
+<ul>
+<li>
+<p>Distributed transactions with multiple databases, Spring Boot, Spring Data JPA and Atomikos<br />
+<a href="http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/">http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/</a><br />
+<a href="https://github.com/fabiomaffioletti/mul-at">https://github.com/fabiomaffioletti/mul-at</a></p>
+</li>
+<li>
+<p>JTA 深度历险 - 原理与实现<br />
+<a href="http://www.ibm.com/developerworks/cn/java/j-lo-jta/">http://www.ibm.com/developerworks/cn/java/j-lo-jta/</a></p>
+</li>
+<li>
+<p>Java事务之八——分布式事务(Spring+JTA+Atomikos+Hibernate+JMS)<br />
+<a href="http://www.cnblogs.com/davenkin/archive/2013/03/19/java-tranaction-8.html">http://www.cnblogs.com/davenkin/archive/2013/03/19/java-tranaction-8.html</a></p>
+</li>
+<li>
+<p>如何实现XA式、非XA式Spring分布式事务<br />
+<a href="http://www.importnew.com/15812.html">http://www.importnew.com/15812.html</a></p>
+</li>
+<li>
+<p>Java事务设计策略 微型书<br />
+<a href="http://www.infoq.com/cn/minibooks/JTDS#idp_register">http://www.infoq.com/cn/minibooks/JTDS#idp_register</a></p>
+</li>
+<li>
+<p>【转】JDBC事务和JTA （XA）事务<br />
+<a href="http://kazge.com/archives/962.html">http://kazge.com/archives/962.html</a></p>
+</li>
+</ul>
+<h3 id="2016-08-15"><a name="user-content-2016-08-15" href="#2016-08-15" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-15</h3>
+<ul>
+<li>
+<p>美团点评技术团队<br />
+<a href="http://tech.meituan.com/">http://tech.meituan.com/</a></p>
+</li>
+<li>
+<p>消息队列设计精要<br />
+<a href="http://tech.meituan.com/mq-design.html">http://tech.meituan.com/mq-design.html</a></p>
+</li>
+<li>
+<p>阿里中间件团队博客<br />
+<a href="http://jm.taobao.org/">http://jm.taobao.org/</a></p>
+</li>
+<li>
+<p>Distributed transactions with multiple databases, Spring Boot, Spring Data JPA and Atomikos<br />
+<a href="http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/">http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/</a><br />
+<a href="https://github.com/fabiomaffioletti/mul-at">https://github.com/fabiomaffioletti/mul-at</a></p>
+</li>
+<li>
+<p>GitHub 中国区前 100 名到底是什么样的人?<br />
+<a href="http://mt.sohu.com/20160407/n443539407.shtml?qq-pf-to=pcqq.discussion">http://mt.sohu.com/20160407/n443539407.shtml?qq-pf-to=pcqq.discussion</a></p>
+</li>
+<li>
+<p>Spring分布式事务配置(atomikos)<br />
+<a href="http://sadwxqezc.github.io/HuangHuanBlog/framework/2016/05/29/Spring%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%85%8D%E7%BD%AE.html?utm_source=tuicool&amp;utm_medium=referral">http://sadwxqezc.github.io/HuangHuanBlog/framework/2016/05/29/Spring%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%85%8D%E7%BD%AE.html?utm_source=tuicool&amp;utm_medium=referral</a></p>
+</li>
+<li>
+<p>基于spring boot项目的多数据源配置与分布式事务处理总结<br />
+<a href="http://hungryant.github.io/java/2015/11/26/java-spring-boot-jta.html">http://hungryant.github.io/java/2015/11/26/java-spring-boot-jta.html</a></p>
+</li>
+</ul>
+<h3 id="2016-08-13"><a name="user-content-2016-08-13" href="#2016-08-13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-13</h3>
+<p>爬虫专题<br />
+- WebMagic<br />
+<a href="http://webmagic.io/docs/zh/">http://webmagic.io/docs/zh/</a><br />
+<a href="https://github.com/YihuaWanglv/webmagic">https://github.com/YihuaWanglv/webmagic</a></p>
+<ul>
+<li>Maven 那点事儿<br />
+<a href="http://my.oschina.net/huangyong/blog/194583">http://my.oschina.net/huangyong/blog/194583</a></li>
+</ul>
+<h3 id="2016-08-12"><a name="user-content-2016-08-12" href="#2016-08-12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-12</h3>
+<ul>
+<li>
+<p>Base: An Acid Alternative<br />
+<a href="http://queue.acm.org/detail.cfm?id=1394128">http://queue.acm.org/detail.cfm?id=1394128</a></p>
+</li>
+<li>
+<p>分布式事务演进<br />
+<a href="http://yongpoliu.com/distributed-tx-evolution/">http://yongpoliu.com/distributed-tx-evolution/</a></p>
+</li>
+<li>
+<p>系统幂等以及常用实现方式<br />
+<a href="http://yongpoliu.com/idempotent/">http://yongpoliu.com/idempotent/</a></p>
+</li>
+<li>
+<p>实现maven依赖的全局排除<br />
+<a href="http://maven.apache.org/enforcer/maven-enforcer-plugin/">http://maven.apache.org/enforcer/maven-enforcer-plugin/</a><br />
+<a href="http://yongpoliu.com/maven-global-exclude/">http://yongpoliu.com/maven-global-exclude/</a></p>
+</li>
+<li>
+<p>bi分析统计工具<br />
+<a href="http://www.tableau.com/zh-cn/products/cloud-bi">http://www.tableau.com/zh-cn/products/cloud-bi</a></p>
+</li>
+<li>
+<p><strong>如何用消息系统避免分布式事务？</strong><br />
+<a href="http://www.cnblogs.com/LBSer/p/4715395.html">http://www.cnblogs.com/LBSer/p/4715395.html</a></p>
+</li>
+<li>
+<p>MySQL两阶段提交<br />
+<a href="http://blog.csdn.net/jesseyoung/article/details/37970271">http://blog.csdn.net/jesseyoung/article/details/37970271</a></p>
+</li>
+</ul>
+<h3 id="2016-08-11"><a name="user-content-2016-08-11" href="#2016-08-11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-11</h3>
+<ul>
+<li>
+<p>Java自动化测试框架TestNG之入门篇<br />
+<a href="http://www.jianshu.com/p/a74adec98eff">http://www.jianshu.com/p/a74adec98eff</a></p>
+</li>
+<li>
+<p>Arquillian Guides<br />
+<a href="http://arquillian.org/guides/getting_started/?utm_source=cta">http://arquillian.org/guides/getting_started/?utm_source=cta</a></p>
+</li>
+<li>
+<p>自动化单元测试实践之路<br />
+<a href="http://www.infoq.com/cn/articles/road-of-automated-unit-testing-practices">http://www.infoq.com/cn/articles/road-of-automated-unit-testing-practices</a></p>
+</li>
+<li>
+<p>8个超实用的Java测试工具和框架<br />
+<a href="http://www.imooc.com/article/1154">http://www.imooc.com/article/1154</a></p>
+</li>
+<li>
+<p>使用 Selenium 实现基于 Web 的自动化测试<br />
+<a href="https://www.ibm.com/developerworks/cn/web/1209_caimin_seleniumweb/">https://www.ibm.com/developerworks/cn/web/1209_caimin_seleniumweb/</a></p>
+</li>
+<li>
+<p>用 STAF+Selenium 实现并行的自动化测试框架<br />
+<a href="https://www.ibm.com/developerworks/cn/java/j-lo-parallelautotest/">https://www.ibm.com/developerworks/cn/java/j-lo-parallelautotest/</a></p>
+</li>
+<li>
+<p>Java Fluent Restful API自动化测试框架<br />
+<a href="http://www.cnblogs.com/jinsdu/p/4606113.html">http://www.cnblogs.com/jinsdu/p/4606113.html</a></p>
+</li>
+<li>
+<p>HTTP API自动化测试从手工到平台的演变<br />
+<a href="http://www.infoq.com/cn/articles/http-api-automated-test-from-manual-to-platform">http://www.infoq.com/cn/articles/http-api-automated-test-from-manual-to-platform</a></p>
+</li>
+<li>
+<p>快速入门测试驱动开发（TDD）<br />
+<a href="http://wwsun.github.io/posts/tdd.html">http://wwsun.github.io/posts/tdd.html</a></p>
+</li>
+<li>
+<p>使用 REST-Assured 测试 REST API 的进阶技巧和最佳实践<br />
+<a href="https://www.ibm.com/developerworks/cn/java/j-lo-rest-assured2/">https://www.ibm.com/developerworks/cn/java/j-lo-rest-assured2/</a></p>
+</li>
+</ul>
+<h3 id="2016-08-10"><a name="user-content-2016-08-10" href="#2016-08-10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-10</h3>
+<ul>
+<li>
+<p>Sharding-JDBC<br />
+<a href="http://dangdangdotcom.github.io/sharding-jdbc/">http://dangdangdotcom.github.io/sharding-jdbc/</a></p>
+</li>
+<li>
+<p>[blog]庄周梦蝶<br />
+<a href="http://fnil.net/">http://fnil.net/</a></p>
+</li>
+<li>
+<p>Atlas是由 Qihoo 360公司Web平台部基础架构团队开发维护的一个基于MySQL协议的数据中间层项目<br />
+<a href="https://github.com/Qihoo360/Atlas/blob/master/README_ZH.md">https://github.com/Qihoo360/Atlas/blob/master/README_ZH.md</a><br />
+<a href="https://github.com/Qihoo360/Atlas">https://github.com/Qihoo360/Atlas</a></p>
+</li>
+<li>
+<p>RDBMS分布式两阶段提交与Zookeeper的Paxos同步算法<br />
+<a href="http://blog.csdn.net/victory0508/article/details/48003527">http://blog.csdn.net/victory0508/article/details/48003527</a></p>
+</li>
+<li>
+<p>分布式系统的事务处理<br />
+<a href="http://coolshell.cn/articles/10910.html">http://coolshell.cn/articles/10910.html</a></p>
+</li>
+<li>
+<p>分布式事务 - 最终一致性(一)<br />
+<a href="https://segmentfault.com/a/1190000005969526">https://segmentfault.com/a/1190000005969526</a></p>
+</li>
+<li>
+<p>介绍下用消息队列实现分布式事务 <br />
+<a href="http://blog.chinaunix.net/uid-20047304-id-4515035.html">http://blog.chinaunix.net/uid-20047304-id-4515035.html</a></p>
+</li>
+</ul>
+<h3 id="2016-08-03"><a name="user-content-2016-08-03" href="#2016-08-03" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-08-03</h3>
+<ul>
+<li>
+<p>解放程序猿（媛）的双手—iOS UI自动化测试<br />
+<a href="http://tmq.qq.com/2016/06/uitestingiosautomation/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io">http://tmq.qq.com/2016/06/uitestingiosautomation/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></p>
+</li>
+<li>
+<p>5小时搞定谷歌原生自动化框架UiAutomator1.0<br />
+<a href="http://tmq.qq.com/2016/06/androidautotestframwork-uiautomator/">http://tmq.qq.com/2016/06/androidautotestframwork-uiautomator/</a></p>
+</li>
+<li>
+<p>有赞延迟队列设计<br />
+<a href="http://tech.youzan.com/queuing_delay/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io">http://tech.youzan.com/queuing_delay/?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></p>
+</li>
+</ul>
+<h2 id="2016-07"><a name="user-content-2016-07" href="#2016-07" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07</h2>
+<h3 id="2016-07-29"><a name="user-content-2016-07-29" href="#2016-07-29" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-29</h3>
+<ul>
+<li>搭建ElasticSearch-2.x Logstash-2.x Kibana-4.5.x Kafka为消息中心的ELK日志平台<br />
+<a href="https://www.iamle.com/archives/2058.html">https://www.iamle.com/archives/2058.html</a></li>
+</ul>
+<h3 id="2016-07-23"><a name="user-content-2016-07-23" href="#2016-07-23" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-23</h3>
+<ul>
+<li>
+<p>discover meteor<br />
+<a href="http://zh.discovermeteor.com/chapters/introduction/">http://zh.discovermeteor.com/chapters/introduction/</a></p>
+</li>
+<li>
+<p>webpack gitbook<br />
+<a href="https://hulufei.gitbooks.io/react-tutorial/content/webpack.html">https://hulufei.gitbooks.io/react-tutorial/content/webpack.html</a></p>
+</li>
+</ul>
+<h3 id="2016-07-22"><a name="user-content-2016-07-22" href="#2016-07-22" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-22</h3>
+<ul>
+<li>
+<p>Spring Boot应用的测试——Mockito<br />
+<a href="http://www.jianshu.com/p/972cd6b93206">http://www.jianshu.com/p/972cd6b93206</a></p>
+</li>
+<li>
+<p>利用Mockito模拟DB<br />
+<a href="http://www.jianshu.com/p/c1c495f231ea">http://www.jianshu.com/p/c1c495f231ea</a></p>
+</li>
+<li>
+<p>在Spring Boot项目中使用Spock框架<br />
+<a href="http://www.jianshu.com/p/f1e354d382cd">http://www.jianshu.com/p/f1e354d382cd</a></p>
+</li>
+<li>
+<p>Spring Boot Testing<br />
+<a href="http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html">http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html</a></p>
+</li>
+<li>
+<p>Integration Testing a Spring Boot Application<br />
+<a href="https://www.jayway.com/2014/07/04/integration-testing-a-spring-boot-application/">https://www.jayway.com/2014/07/04/integration-testing-a-spring-boot-application/</a></p>
+</li>
+</ul>
+<h3 id="2016-07-21"><a name="user-content-2016-07-21" href="#2016-07-21" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-21</h3>
+<ul>
+<li>Growth: 全栈增长工程师指南<br />
+<a href="http://growth.phodal.com/#">http://growth.phodal.com/#</a></li>
+</ul>
+<h3 id="2016-07-19"><a name="user-content-2016-07-19" href="#2016-07-19" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-19</h3>
+<ul>
+<li>微服务架构的分布式事务解决方案<br />
+<a href="http://www.roncoo.com/details?cid=7ae3d7eddc4742f78b0548aa8bd9ccdb">http://www.roncoo.com/details?cid=7ae3d7eddc4742f78b0548aa8bd9ccdb</a></li>
+</ul>
+<h3 id="2016-07-16"><a name="user-content-2016-07-16" href="#2016-07-16" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-16</h3>
+<ul>
+<li>
+<p>使用 Vaadin 实现全堆栈 Java Web 开发<br />
+<a href="http://www.ibm.com/developerworks/cn/java/j-full-stack-java-web-dev-vaadin/">http://www.ibm.com/developerworks/cn/java/j-full-stack-java-web-dev-vaadin/</a></p>
+</li>
+<li>
+<p>Creating CRUD UI with Vaadin<br />
+<a href="https://spring.io/guides/gs/crud-with-vaadin/">https://spring.io/guides/gs/crud-with-vaadin/</a><br />
+git clone <a href="https://github.com/spring-guides/gs-crud-with-vaadin.git">https://github.com/spring-guides/gs-crud-with-vaadin.git</a></p>
+</li>
+<li>
+<p>当当网开源Dubbox，扩展Dubbo服务框架支持REST风格远程调用<br />
+<a href="http://www.infoq.com/cn/news/2014/10/dubbox-open-source">http://www.infoq.com/cn/news/2014/10/dubbox-open-source</a></p>
+</li>
+<li>
+<p>在Dubbo中开发REST风格的远程调用（RESTful Remoting）<br />
+<a href="http://dangdangdotcom.github.io/dubbox/rest.html">http://dangdangdotcom.github.io/dubbox/rest.html</a></p>
+</li>
+<li>
+<p>使用JavaConfig方式配置dubbox<br />
+<a href="http://dangdangdotcom.github.io/dubbox/java-config.html">http://dangdangdotcom.github.io/dubbox/java-config.html</a></p>
+</li>
+<li>
+<p>Microservices with Spring<br />
+<a href="https://spring.io/blog/2015/07/14/microservices-with-spring">https://spring.io/blog/2015/07/14/microservices-with-spring</a></p>
+</li>
+</ul>
+<h3 id="2016-07-14"><a name="user-content-2016-07-14" href="#2016-07-14" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-14</h3>
+<ul>
+<li>Import/Read excel file 2003 or 2007 with Spring MVC<br />
+<a href="http://lvtutorial.com/spring-mvc/read-excel-file-2003-or-2007-with-spring-mvc.html">http://lvtutorial.com/spring-mvc/read-excel-file-2003-or-2007-with-spring-mvc.html</a></li>
+<li>SPRING BOOT FILE UPLOAD WITH AJAX<br />
+<a href="http://blog.netgloo.com/2015/02/08/spring-boot-file-upload-with-ajax/">http://blog.netgloo.com/2015/02/08/spring-boot-file-upload-with-ajax/</a><br />
+<a href="https://github.com/netgloo/spring-boot-samples">https://github.com/netgloo/spring-boot-samples</a></li>
+</ul>
+<h3 id="2016-07-13"><a name="user-content-2016-07-13" href="#2016-07-13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-13</h3>
+<ul>
+<li>
+<p>cSphere Docker 实训课程<br />
+<a href="http://git.oschina.net/dockerf/docker-training">http://git.oschina.net/dockerf/docker-training</a></p>
+</li>
+<li>
+<p>Spring Cloud方面的博客<br />
+<a href="http://blog.didispace.com/">http://blog.didispace.com/</a></p>
+</li>
+<li>
+<p>白话 IT 之浅谈 ELK 日志系统<br />
+<a href="https://mp.weixin.qq.com/s?__biz=MzA4ODgwNjk1MQ==&amp;mid=2653788351&amp;idx=1&amp;sn=a38a0b95b63186b789423195fa09f91d&amp;scene=0&amp;key=77421cf58af4a653195d70dcdaaed6e78c06fe4711f95c19349f5ca630c1e7f8481f6f21ba392beedcc329dbcc331cc8&amp;ascene=0&amp;uin=MTM4NTI5NTI4Mg%3D%3D&amp;devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.9.5+build(13F1808)&amp;version=11020201&amp;pass_ticket=MxW0cGHvKj7WTMRpzBpE%2FND%2BPkUf91pVVetULpXmjhLbsP9btRTYFt3DF6QSZ5Ct">https://mp.weixin.qq.com/s?__biz=MzA4ODgwNjk1MQ==&amp;mid=2653788351&amp;idx=1&amp;sn=a38a0b95b63186b789423195fa09f91d&amp;scene=0&amp;key=77421cf58af4a653195d70dcdaaed6e78c06fe4711f95c19349f5ca630c1e7f8481f6f21ba392beedcc329dbcc331cc8&amp;ascene=0&amp;uin=MTM4NTI5NTI4Mg%3D%3D&amp;devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.9.5+build(13F1808)&amp;version=11020201&amp;pass_ticket=MxW0cGHvKj7WTMRpzBpE%2FND%2BPkUf91pVVetULpXmjhLbsP9btRTYFt3DF6QSZ5Ct</a></p>
+</li>
+<li>
+<p>用户行为分析项目<br />
+<a href="https://github.com/YihuaWanglv/piwik">https://github.com/YihuaWanglv/piwik</a></p>
+</li>
+</ul>
+<h3 id="2016-07-12"><a name="user-content-2016-07-12" href="#2016-07-12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-12</h3>
+<ul>
+<li>
+<p>使用API网关构建微服务<br />
+<a href="http://www.infoq.com/cn/articles/construct-micro-service-using-api-gateway">http://www.infoq.com/cn/articles/construct-micro-service-using-api-gateway</a></p>
+</li>
+<li>
+<p>使用Spring Cloud和Docker构建微服务<br />
+<a href="http://www.dockone.io/article/510">http://www.dockone.io/article/510</a><br />
+原文链接：<br />
+<a href="http://www.kennybastani.com/2015/07/spring-cloud-docker-microservices.html?mkt_tok=3RkMMJWWfF9wsRonuqTMZKXonjHpfsX57ukoWaC0lMI%2F0ER3fOvrPUfGjI4ATcdqI%2BSLDwEYGJlv6SgFQ7LMMaZq1rgMXBk%3D">http://www.kennybastani.com/2015/07/spring-cloud-docker-microservices.html?mkt_tok=3RkMMJWWfF9wsRonuqTMZKXonjHpfsX57ukoWaC0lMI%2F0ER3fOvrPUfGjI4ATcdqI%2BSLDwEYGJlv6SgFQ7LMMaZq1rgMXBk%3D</a></p>
+</li>
+<li>
+<p>The API Gateway Pattern: Angular JS and Spring Security Part IV<br />
+<a href="https://spring.io/blog/2015/01/28/the-api-gateway-pattern-angular-js-and-spring-security-part-iv">https://spring.io/blog/2015/01/28/the-api-gateway-pattern-angular-js-and-spring-security-part-iv</a></p>
+</li>
+<li>
+<p>git demo for spring-boot-microservices<br />
+<a href="https://github.com/YihuaWanglv/spring-boot-microservices">https://github.com/YihuaWanglv/spring-boot-microservices</a><br />
+<a href="https://github.com/YihuaWanglv/spring-cloud-microservice-example">https://github.com/YihuaWanglv/spring-cloud-microservice-example</a></p>
+</li>
+<li>
+<p>Implementing Netflix Zuul in Spring Cloud<br />
+<a href="http://kubecloud.io/apigatewaypattern/">http://kubecloud.io/apigatewaypattern/</a><br />
+<a href="http://start.spring.io/">http://start.spring.io/</a></p>
+</li>
+</ul>
+<h3 id="2016-07-11"><a name="user-content-2016-07-11" href="#2016-07-11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-11</h3>
+<ul>
+<li>
+<p>使用 Vuex + Vue.js 构建单页应用<br />
+<a href="https://segmentfault.com/a/1190000005891026">https://segmentfault.com/a/1190000005891026</a><br />
+<a href="https://github.com/lichenbuliren/vuex-notes-app">https://github.com/lichenbuliren/vuex-notes-app</a></p>
+</li>
+<li>
+<p>两篇关于微服务api gateway的著名文章<br />
+<a href="http://microservices.io/patterns/apigateway.html">http://microservices.io/patterns/apigateway.html</a><br />
+<a href="https://www.nginx.com/blog/building-microservices-using-an-api-gateway/">https://www.nginx.com/blog/building-microservices-using-an-api-gateway/</a></p>
+</li>
+</ul>
+<h3 id="2016-07-08"><a name="user-content-2016-07-08" href="#2016-07-08" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-08</h3>
+<ul>
+<li>
+<p>使用spring boot和thrift、zookeeper建立微服务<br />
+<a href="http://www.cnblogs.com/skyblog/p/5535418.html">http://www.cnblogs.com/skyblog/p/5535418.html</a></p>
+</li>
+<li>
+<p>Jenkins+Docker搭建持续集成测试环境<br />
+<a href="http://www.dockone.io/article/1464">http://www.dockone.io/article/1464</a></p>
+</li>
+<li>
+<p>spring boot+spring cloud服务化系列博客<br />
+<a href="http://www.cnblogs.com/skyblog/category/774535.html">http://www.cnblogs.com/skyblog/category/774535.html</a></p>
+</li>
+</ul>
+<h3 id="2016-07-06"><a name="user-content-2016-07-06" href="#2016-07-06" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-07-06</h3>
+<ul>
+<li>
+<p>使用Jenkins搭建iOS/Android持续集成打包平台<br />
+<a href="http://debugtalk.com/post/iOS-Android-Packing-with-Jenkins">http://debugtalk.com/post/iOS-Android-Packing-with-Jenkins</a></p>
+</li>
+<li>
+<p>React-Native For Android 环境搭建及踩坑<br />
+<a href="http://www.imbeta.cn/react-native-for-android-huan-jing-da-jian-ji-cai-keng.html">http://www.imbeta.cn/react-native-for-android-huan-jing-da-jian-ji-cai-keng.html</a></p>
+</li>
+<li>
+<p>React Native 开发培训免费书<br />
+<a href="https://unbug.gitbooks.io/react-native-training/content/">https://unbug.gitbooks.io/react-native-training/content/</a></p>
+</li>
+<li>
+<p>Android Studio插件整理<br />
+<a href="https://ydmmocoo.github.io/2016/06/28/Android-Studio%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/">https://ydmmocoo.github.io/2016/06/28/Android-Studio%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/</a></p>
+</li>
+<li>
+<p>FastDFS + Nginx 反向代理缓存 安装与配置<br />
+<a href="http://www.linux178.com/storage/fastdfs-nginx-cache.html">http://www.linux178.com/storage/fastdfs-nginx-cache.html</a></p>
+</li>
+</ul>
+<h2 id="2016-06"><a name="user-content-2016-06" href="#2016-06" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-06</h2>
+<h3 id="2016-06-24"><a name="user-content-2016-06-24" href="#2016-06-24" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-06-24</h3>
+<ul>
+<li>
+<p>【直播全文记录】 从零开始搭建高可用IM系统<br />
+<a href="http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=206924771&amp;idx=1&amp;sn=4705b832c410765a3c89acfa1300b0b6&amp;scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=206924771&amp;idx=1&amp;sn=4705b832c410765a3c89acfa1300b0b6&amp;scene=21#wechat_redirect</a></p>
+</li>
+<li>
+<p>如何设计类似微信的多终端数据同步协议 | Grouk实践分享<br />
+<a href="http://chuansong.me/n/1718596">http://chuansong.me/n/1718596</a></p>
+</li>
+</ul>
+<h3 id="2016-06-22"><a name="user-content-2016-06-22" href="#2016-06-22" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-06-22</h3>
+<ul>
+<li>
+<p>基于Dubbo框架构建分布式服务<br />
+<a href="http://shiyanjun.cn/archives/1075.html">http://shiyanjun.cn/archives/1075.html</a></p>
+</li>
+<li>
+<p>高并发性能调试经验分享<br />
+<a href="https://zhuanlan.zhihu.com/p/21348220">https://zhuanlan.zhihu.com/p/21348220</a></p>
+</li>
+<li>
+<p>Java进阶（三）多线程开发关键技术<br />
+<a href="http://www.jasongj.com/java/multi_thread/">http://www.jasongj.com/java/multi_thread/</a></p>
+</li>
+<li>
+<p>blog kafka<br />
+<a href="http://www.jasongj.com/tags/Kafka/">http://www.jasongj.com/tags/Kafka/</a></p>
+</li>
+<li>
+<p>如何构建Android MVVM应用程序<br />
+<a href="http://www.jianshu.com/p/2fc41a310f79">http://www.jianshu.com/p/2fc41a310f79</a></p>
+</li>
+<li>
+<p>超详细React Native实现微信好友/朋友圈分享功能-Android/iOS双平台通用<br />
+<a href="http://www.lcode.org/%E8%B6%85%E8%AF%A6%E7%BB%86react-native%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%A5%BD%E5%8F%8B%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD-androidios%E5%8F%8C%E5%B9%B3%E5%8F%B0/">http://www.lcode.org/%E8%B6%85%E8%AF%A6%E7%BB%86react-native%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%A5%BD%E5%8F%8B%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD-androidios%E5%8F%8C%E5%B9%B3%E5%8F%B0/</a></p>
+</li>
+<li>
+<p>SHELL编程之常用技巧<br />
+<a href="http://mp.weixin.qq.com/s?__biz=MzIxNDMyODgyMA==&amp;mid=2247483698&amp;idx=1&amp;sn=3b52493d202362aae0bf511002e63d52">http://mp.weixin.qq.com/s?__biz=MzIxNDMyODgyMA==&amp;mid=2247483698&amp;idx=1&amp;sn=3b52493d202362aae0bf511002e63d52</a></p>
+</li>
+<li>
+<p>让你爱上写作的 11 款 Markdown 工具<br />
+<a href="http://www.ifanr.com/app/665209">http://www.ifanr.com/app/665209</a></p>
+</li>
+<li>
+<p>基于Docker搭建Hadoop集群之升级版<br />
+<a href="http://kiwenlau.com/2016/06/12/160612-hadoop-cluster-docker-update/">http://kiwenlau.com/2016/06/12/160612-hadoop-cluster-docker-update/</a></p>
+</li>
+<li>
+<p>Kafka设计解析（一）- Kafka背景及架构介绍<br />
+<a href="http://www.jasongj.com/2015/03/10/KafkaColumn1/">http://www.jasongj.com/2015/03/10/KafkaColumn1/</a></p>
+</li>
+</ul>
+<h3 id="2016-06-15"><a name="user-content-2016-06-15" href="#2016-06-15" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-06-15</h3>
+<ul>
+<li>
+<p>淘拍拍前端架构2.0-简介<br />
+<a href="http://www.w3cfuns.com/notes/25101/33114eae47bbda0c50fb67eeb4a7fd6c.html">http://www.w3cfuns.com/notes/25101/33114eae47bbda0c50fb67eeb4a7fd6c.html</a></p>
+</li>
+<li>
+<p>轻松监控上万台服务器：企业运维监控平台架构设计与实践指南<br />
+<a href="http://dbaplus.cn/news-21-466-1.html">http://dbaplus.cn/news-21-466-1.html</a></p>
+</li>
+<li>
+<p>Mesos+Zookeeper+Marathon+Docker分布式集群管理最佳实践<br />
+<a href="http://mp.weixin.qq.com/s?__biz=MzI4NTA1MDEwNg==&amp;mid=2650755658&amp;idx=1&amp;sn=9f5e4831b2c27d66e4296c49ffcd3d7c&amp;scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MzI4NTA1MDEwNg==&amp;mid=2650755658&amp;idx=1&amp;sn=9f5e4831b2c27d66e4296c49ffcd3d7c&amp;scene=21#wechat_redirect</a></p>
+</li>
+<li>
+<p>网易蜂巢微服务架构：用RabbitMQ实现轻量级通信<br />
+<a href="http://mp.weixin.qq.com/s?__biz=MzI4NTA1MDEwNg==&amp;mid=2650755639&amp;idx=2&amp;sn=0e43c1b7168dbcd60582326fb20f2f19&amp;scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MzI4NTA1MDEwNg==&amp;mid=2650755639&amp;idx=2&amp;sn=0e43c1b7168dbcd60582326fb20f2f19&amp;scene=21#wechat_redirect</a></p>
+</li>
+<li>
+<p>使用Vue.js从零构建GitHub项目浏览器<br />
+<a href="http://xlbd.me/vue-demo-github-file-explorer/">http://xlbd.me/vue-demo-github-file-explorer/</a></p>
+</li>
+</ul>
+<h3 id="2016-06-07"><a name="user-content-2016-06-07" href="#2016-06-07" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-06-07</h3>
+<ul>
+<li>
+<p>搭建Git服务器<br />
+<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000</a></p>
+</li>
+<li>
+<p>gitlab centos一键安装<br />
+<a href="http://blog.csdn.net/asd131531/article/details/42374285">http://blog.csdn.net/asd131531/article/details/42374285</a><br />
+<a href="http://www.linuxidc.com/Linux/2014-08/105137.htm">http://www.linuxidc.com/Linux/2014-08/105137.htm</a></p>
+</li>
+</ul>
+<h3 id="2016-06-06"><a name="user-content-2016-06-06" href="#2016-06-06" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2016-06-06</h3>
+<ul>
+<li>
+<p>一套仿 微信 IM系统 基于apache mina<br />
+<a href="http://my.oschina.net/u/1167637/blog/411312">http://my.oschina.net/u/1167637/blog/411312</a></p>
+</li>
+<li>
+<p>socketio 服务器推送<br />
+<a href="http://blog.csdn.net/xtayfjpk/article/details/40948409">http://blog.csdn.net/xtayfjpk/article/details/40948409</a></p>
+</li>
+<li>
+<p>开放源码,基于springMVC+springSecurity3.x+Mybaits3.x的权限系统,,支持开源<br />
+<a href="https://github.com/caprice/lanyuan">https://github.com/caprice/lanyuan</a></p>
+</li>
+<li>
+<p>Simple asynchronous non blocking chat server/client based on Netty 4<br />
+<a href="https://github.com/caprice/nettychat">https://github.com/caprice/nettychat</a><br />
+<a href="https://github.com/YihuaWanglv/nettychat">https://github.com/YihuaWanglv/nettychat</a></p>
+</li>
+<li>
+<p>[5][android]A High Copy WeChat ,SNS APP (高仿微信)<br />
+<a href="https://github.com/YihuaWanglv/wechat">https://github.com/YihuaWanglv/wechat</a></p>
+</li>
+<li>
+<p>一个Android开发者博客<br />
+<a href="http://blog.csdn.net/finddreams">http://blog.csdn.net/finddreams</a></p>
+</li>
+<li>
+<p>案例剖析：从0开始搭建一个微服务的持续交付系统<br />
+<a href="http://mp.weixin.qq.com/s?__biz=MzA5Nzc4OTA1Mw==&amp;mid=2659597380&amp;idx=1&amp;sn=e0087759e6b65df0ba30126c1e3af915&amp;scene=0#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MzA5Nzc4OTA1Mw==&amp;mid=2659597380&amp;idx=1&amp;sn=e0087759e6b65df0ba30126c1e3af915&amp;scene=0#wechat_redirect</a></p>
+</li>
+<li>
+<p>[5][android]这是一个可用于Android快速开发的框架，集成了很多项目中通用的东西，免去重复造轮子的麻烦，直接下载来了，修改一下就可以做为基础的框架进行开发，提高开发速度，适合当前移动互联网时代敏捷快速开发的节奏<br />
+<a href="https://github.com/YihuaWanglv/Android_BaseLib">https://github.com/YihuaWanglv/Android_BaseLib</a></p>
+</li>
+<li>
+<p>使用Netty实现IMServer，方便的Entity解码编码机制，融合到二进制协议中<br />
+<a href="https://github.com/YihuaWanglv/netty-chat">https://github.com/YihuaWanglv/netty-chat</a></p>
+</li>
+<li>
+<p>仿淘宝的B2C商城项目<br />
+页面用的jsp，稍显陈旧<br />
+<a href="https://github.com/YihuaWanglv/B2CWeb">https://github.com/YihuaWanglv/B2CWeb</a></p>
+</li>
+<li>
+<p>JavaEE项目开发脚手架<br />
+<a href="https://github.com/YihuaWanglv/es">https://github.com/YihuaWanglv/es</a><br />
+后端:<br />
+IoC容器 spring<br />
+web框架 springmvc<br />
+orm框架 hibernate + spring data jpa<br />
+安全框架 shiro<br />
+验证框架 hibernate validator<br />
+任务调度框架 quartz<br />
+缓存 ehcache<br />
+数据源 druid<br />
+日志 slf4j+logback<br />
+Json fastjson<br />
+日期美化 prettytime<br />
+servlet 3.0(需要支持servlet3的servlet容器，如tomcat7)<br />
+jcaptcha 验证码<br />
+jsp 模板视图<br />
+前端:<br />
+jquery js框架<br />
+jquery-ui-bootstrap界面框架<br />
+font-wesome 字体/图标框架<br />
+jquery Validation Engine 验证框架（配合spring的验证框架，页面验证简化不少）<br />
+kindeditor 编辑器<br />
+nicescroll 漂亮的滚动条<br />
+zTree 树框架<br />
+jquery blockUI 弹出框/遮罩框架<br />
+jquery-fileupload 文件上传<br />
+bootstrap-datatimepicker 日历选择</p>
+</li>
+<li>
+<p>[5][android]Collect and classify android open source projects<br />
+<a href="https://github.com/YihuaWanglv/android-open-project">https://github.com/YihuaWanglv/android-open-project</a></p>
+</li>
+<li>
+<p>Blog avec Spring MVC + spring DATA + mongodb + angularjs<br />
+<a href="https://github.com/YihuaWanglv/blog_java">https://github.com/YihuaWanglv/blog_java</a></p>
+</li>
+<li>
+<p>dianping-api-samples<br />
+<a href="https://github.com/YihuaWanglv/dianping-open-sdk">https://github.com/YihuaWanglv/dianping-open-sdk</a></p>
+</li>
+<li>
+<p>JeeSite 是一个企业信息管理系统基础框架，Java EE（J2EE）快速开发框架，使用经典技术组合（Spring、Spring MVC、Apache Shiro、Hibernate、Bootstrap UI），包括核心模块如：组织机构、用户、权限授权、内容管理、工作流等。<br />
+<a href="https://github.com/YihuaWanglv/jeesite">https://github.com/YihuaWanglv/jeesite</a></p>
+</li>
+<li>
+<p>Demos of Apache MINA User Guide《Apache MINA 2 用户指南》中文翻译，文中用到的例子源码 <a href="https://github.com/waylau/apache-mina-2.x-user-guide">https://github.com/waylau/apache-mina-2.x-user-guide</a><br />
+<a href="https://github.com/waylau/apache-mina-2-user-guide-demos">https://github.com/waylau/apache-mina-2-user-guide-demos</a></p>
+</li>
+<li>
+<p>Spring Framework 4.x Reference Documentation 中文翻译<br />
+<a href="https://www.gitbook.com/book/waylau/spring-framework-4-reference/details">https://www.gitbook.com/book/waylau/spring-framework-4-reference/details</a><br />
+<a href="https://github.com/waylau/spring-framework-4-reference">https://github.com/waylau/spring-framework-4-reference</a></p>
+</li>
+<li>
+<p>免费的计算机编程类中文书籍<br />
+<a href="https://github.com/YihuaWanglv/free-programming-books-zh_CN">https://github.com/YihuaWanglv/free-programming-books-zh_CN</a><br />
+网页版：<br />
+<a href="http://siberiawolf.com/free_programming/index.html">http://siberiawolf.com/free_programming/index.html</a></p>
+</li>
+<li>
+<p>一个合格的程序员应该读过哪些书<br />
+<a href="http://justjavac.com/other/2012/05/15/qualified-programmer-should-read-what-books.html">http://justjavac.com/other/2012/05/15/qualified-programmer-should-read-what-books.html</a></p>
+</li>
+<li>
+<p>Google 全球 IP 地址库<br />
+<a href="https://github.com/justjavac/Google-IPs">https://github.com/justjavac/Google-IPs</a></p>
+</li>
+<li>
+<p>一份关于“资料汇总”的汇总<br />
+<a href="https://github.com/YihuaWanglv/awesome-awesomeness-zh_CN">https://github.com/YihuaWanglv/awesome-awesomeness-zh_CN</a></p>
+</li>
+<li>
+<p>Freely available programming books<br />
+<a href="https://github.com/YihuaWanglv/free-programming-books">https://github.com/YihuaWanglv/free-programming-books</a></p>
+</li>
+<li>
+<p>RESTful API 设计参考文献列表，可帮助你更加彻底的了解REST风格的接口设计<br />
+<a href="https://github.com/aisuhua/restful-api-design-references">https://github.com/aisuhua/restful-api-design-references</a></p>
+</li>
+<li>
+<p>ssential Netty in Action 《Netty 实战(精髓)》<br />
+<a href="https://github.com/waylau/essential-netty-in-action">https://github.com/waylau/essential-netty-in-action</a><br />
+gitbook：<br />
+<a href="http://waylau.com/essential-netty-in-action/">http://waylau.com/essential-netty-in-action/</a></p>
+</li>
+<li>
+<p>Gradle 2 User Guide 中文翻译《Gradle 2 用户指南》<br />
+<a href="https://github.com/waylau/Gradle-2-User-Guide">https://github.com/waylau/Gradle-2-User-Guide</a><br />
+gitbook：<br />
+<a href="https://www.gitbook.com/book/waylau/gradle-2-user-guide/details">https://www.gitbook.com/book/waylau/gradle-2-user-guide/details</a></p>
+</li>
+<li>
+<p>Netty 4.x User Guide 中文翻译《Netty 4.x 用户指南》<br />
+<a href="https://github.com/waylau/netty-4-user-guide">https://github.com/waylau/netty-4-user-guide</a><br />
+gitbook：<br />
+<a href="http://waylau.com/netty-4-user-guide/">http://waylau.com/netty-4-user-guide/</a></p>
+</li>
+<li>
+<p>这是一个整理即时通讯（IM）和社交系统（SNS）优秀开源项目的文档，项目上传github欢迎提交更新<br />
+<a href="https://github.com/YihuaWanglv/Perfect_IM_SNS">https://github.com/YihuaWanglv/Perfect_IM_SNS</a></p>
+</li>
+<li>
+<p>基于位置信息，空间时间结合的社交与分享的应用<br />
+<a href="https://github.com/YihuaWanglv/Tuyi">https://github.com/YihuaWanglv/Tuyi</a></p>
+</li>
+<li>
+<p>SYTeamApp：基于环信平台进行开发，旨在打造的高效团队沟通的移动客户端，供企业内部协作使用、适应移动办公需要，提升企业沟通协同效率，增强企业办公管理效率。（当前仅实现了用户登入登出功能、通讯功能、投票功能。）<br />
+<a href="https://github.com/YihuaWanglv/SYTeamApp">https://github.com/YihuaWanglv/SYTeamApp</a></p>
+</li>
+<li>
+<p>MeifuGO：An open source android app by using easemob IM SDK <br />
+<a href="https://github.com/YihuaWanglv/MeifuGO">https://github.com/YihuaWanglv/MeifuGO</a></p>
+</li>
+<li>
+<p>fangyuanshili：环信SDK,IM,geohash,lbs <br />
+<a href="https://github.com/YihuaWanglv/fangyuanshili">https://github.com/YihuaWanglv/fangyuanshili</a></p>
+</li>
+<li>
+<p>zaina：该项目是改编自环信即时通讯云的demo改编<br />
+<a href="https://github.com/YihuaWanglv/zaina">https://github.com/YihuaWanglv/zaina</a></p>
+</li>
+<li>
+<p>dianhua：基于react native 和 环信的实时通话的免费店话<br />
+<a href="https://github.com/YihuaWanglv/dianhua">https://github.com/YihuaWanglv/dianhua</a></p>
+</li>
+<li>
+<p>Baby：一个私密社交APP<br />
+<a href="https://github.com/YihuaWanglv/Baby">https://github.com/YihuaWanglv/Baby</a></p>
+</li>
+<li>
+<p>MVPCommon：一个集成了众多开源项目的Android MVP框架以及应用搭建，全程博客更新。<br />
+a common Architecture and project build with blogs releasing based on MVP，integrates many Open Source Projects ,to make your developing quicker and easier.<br />
+<a href="https://github.com/YihuaWanglv/MVPCommon">https://github.com/YihuaWanglv/MVPCommon</a><br />
+从零开始搭建android框架系列：<br />
+<a href="http://www.jianshu.com/notebooks/3767449/latest">http://www.jianshu.com/notebooks/3767449/latest</a></p>
+</li>
+<li>
+<p>learnCloud：<br />
+和应用服务器、存储服务器说再见<br />
+再也不用租服务器，也不用写后端代码了。LeanCloud 提供一站式后端云服务，从数据存储、实时聊天、消息推送到移动统计，涵盖应用开发的多方面后端需求。<br />
+<a href="https://leancloud.cn/">https://leancloud.cn/</a></p>
+</li>
+<li>
+<p>不容错过，最全的安卓架构合集【从零开始搭建android框架系列（2）】<br />
+<a href="http://www.jianshu.com/p/1f21e1d375aa">http://www.jianshu.com/p/1f21e1d375aa</a></p>
+</li>
+<li>
+<p>安卓架构文章合集（a collection of android Architecture）<br />
+<a href="https://github.com/YihuaWanglv/AndroidArchitectureCollection">https://github.com/YihuaWanglv/AndroidArchitectureCollection</a></p>
+</li>
+</ul></article></body></html>

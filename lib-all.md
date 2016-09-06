@@ -3,6 +3,50 @@
 所有有用资源在此先汇合，再细化分流归纳到别的lib集合中.
 资源含文章，git code等等..
 
+
+
+
+
+## 2016-09
+
+### 2016-09-01
+- ELKstack 中文指南
+https://www.gitbook.com/book/chenryn/elk-stack-guide-cn/details
+
+### 2016-09-06
+- 互联网项目架构经验分享
+http://mp.weixin.qq.com/s?__biz=MzA4NDc2MDQ1Nw==&mid=2650237940&idx=1&sn=2cb33010b12db3a7bde7a89878c80337
+
+- LearnSwift - 一百天五十个 Swift 项目
+http://www.jianshu.com/p/6d556c4e5fe1?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+https://github.com/cjiong/LearnSwift
+
+- 视频直播技术详解》系列之一：采集
+https://shimo.im/s/81550df0-e21a-4416-9c7f-e98a824aaa8c
+
+- 《视频直播技术详解》系列之二：处理
+https://shimo.im/s/1400b58b-06f5-4dda-abca-f0e2f9139b4c
+
+- 大规模实时流处理平台架构
+http://mp.weixin.qq.com/s?__biz=MjM5NzAwNDI4Mg==&mid=2652190799&idx=1&sn=007cce0db1ebb1b8711b442160042ca2#rd
+
+- Google 开源 RPC 框架 gRPC 初探
+http://blog.jrwang.me/2016/grpc-at-first-view/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+https://github.com/jrthe42/grpc-service-demo
+
+- 移动APP服务端开发你需要了解什么
+http://yywang.info/2016/08/24/api/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- 基于Spring Boot、AngularJS、CSS3、HTML5的响应式文件浏览管理器
+http://shaofan.org/angular-filemanager/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+https://git.oschina.net/alexyang/spring-boot-filemanager
+
+
+
+
+
+
+
 ## 2016-08
 
 
