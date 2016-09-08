@@ -9,7 +9,23 @@
 
 ## 2016-09
 
-### 2016-09-01
+### 2016-09-08
+- 使用微服务架构重构支付网关
+http://blog.lixf.cn/essay/2016/09/01/microservice-4/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- 支付系统架构
+http://blog.lixf.cn/essay/2016/08/08/payment-arch/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- 如何用消息系统避免分布式事务？
+https://yq.aliyun.com/articles/10
+
+- 如何用消息系统避免分布式事务？
+https://yq.aliyun.com/articles/57665?spm=5176.100239.blogcont10.13.fTifoQ&do=login
+
+
+
+
+### 2016-09-07
 - ELKstack 中文指南
 https://www.gitbook.com/book/chenryn/elk-stack-guide-cn/details
 
