@@ -9,6 +9,31 @@
 
 ## 2016-09
 
+### 2016-09-18
+- https://github.com/jobbole
+
+- 没有免费用户却飞速发展，Uber技术栈全解析
+http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2650994162&idx=1&sn=9fe3c9497139d0189a6300a53ecd6393&chksm=bdbf0da18ac884b71f337d1091295eb35be3eb7cb73a93d620c0af351edbfcd0f63a522cfffb&scene=0#wechat_redirect
+
+
+### 2016-09-13
+- 简单轻量级的RPC框架—HRPC
+https://github.com/YihuaWanglv/HRPC
+
+- 后端技术杂谈
+http://www.rowkey.me/blog/2016/08/27/server-basic-tech-stack/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- [译]性能测试最佳实践之JMeter
+http://www.jianshu.com/p/705e850b633c?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- Vue或React多页应用脚手架
+http://www.meckodo.com/#!/article/57c7f233894ec113805fac11?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+https://github.com/MeCKodo/vue-multipage
+https://github.com/MeCKodo/react-multipage
+
+
+
+
 ### 2016-09-08
 - 使用微服务架构重构支付网关
 http://blog.lixf.cn/essay/2016/09/01/microservice-4/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
