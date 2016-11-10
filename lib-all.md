@@ -7,6 +7,24 @@
 
 
 
+## 2016-11
+
+### 2016-11-10
+- ionic中文教程
+http://www.haomou.net/2014/10/06/2014_ionic_learn/
+
+- Java调优经验谈
+http://www.rowkey.me/blog/2016/11/02/java-profile/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+- Spark Streaming + Elasticsearch构建App异常监控平台
+http://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651745502&idx=2&sn=3e51f4f96e350e88229ed201a3a37d2b
+
+- 知其所以然之永不遗忘的算法
+http://selfboot.cn/2015/11/03/howto_find_algorithm/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+
+
+
 ## 2016-09
 
 ### 2016-09-18
