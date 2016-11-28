@@ -9,6 +9,15 @@
 
 ## 2016-11
 
+### 2016-11-28
+- Android ConstraintLayout详解
+http://www.jianshu.com/p/a8b49ff64cd3
+
+### 2016-11-23
+- gitbook
+https://getfullstack.com/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+
 ### 2016-11-10
 - ionic中文教程
 http://www.haomou.net/2014/10/06/2014_ionic_learn/
