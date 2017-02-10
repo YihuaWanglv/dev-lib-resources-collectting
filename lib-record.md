@@ -1541,6 +1541,85 @@ java nio实现非阻塞Socket通信实例 - http://blog.csdn.net/x605940745/arti
 Java深入 - Java Socket和NIO - http://blog.csdn.net/initphp/article/details/39271755
 ```
 
+55. spring-boot jar、war两种方式打包运行
+1,jar
 
+增加依赖
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+配置文件配置启用shutdown的HTTP访问
+```
+#启用 shutdown endpoint的HTTP访问
+endpoints.shutdown.enabled=true
+#不需要用户名密码验证 
+endpoints.shutdown.sensitive=false
+```
+curl -X POST localhost:port/shutdown 发动post请求，即可优雅的停止应用：
+
+spring boot maven项目打包运行和停止
+
+1.获取到代码后，编译打包。使用命令：
+```
+mvn clean package
+```
+2.停止正在运行的spring boot应用。使用命令：
+```
+curl -X POST {host}:{port}/shutdown
+```
+{host}是应用部署的ip地址，{port}是应用部署的端口，替换成对应的参数即可
+
+3.运行应用。
+加入打包后的jar包名为app.jar，那么运行这个应用的命令是：
+```
+java -jar app.jar
+```
+以后台程序的方式启动，并指定输出日志的路径。最后使用命令：
+```
+nohup java -jar app.jar < /dev/null > /data/logs/app.log 2>&1 &
+```
+
+
+2,war
+
+创建一个可部署的war文件
+
+产生一个可部署war包的第一步是提供一个SpringBootServletInitializer子类，并覆盖它的configure方法。这充分利用了Spring框架对Servlet 3.0的支持，并允许你在应用通过servlet容器启动时配置它。通常，你只需把应用的主类改为继承SpringBootServletInitializer即可：
+```
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
+
+}
+```
+下一步是更新你的构建配置，这样你的项目将产生一个war包而不是jar包。如果你使用Maven，并使用spring-boot-starter-parent（为了配置Maven的war插件），所有你需要做的就是更改pom.xml的packaging为war：
+```
+<packaging>war</packaging>
+```
+该过程最后的一步是确保内嵌的servlet容器不能干扰war包将部署的servlet容器。为了达到这个目的，你需要将内嵌容器的依赖标记为provided。
+
+如果使用Maven：
+```
+<dependencies>
+    <!-- … -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    <!-- … -->
+</dependencies>
+```
 
 
