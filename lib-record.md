@@ -1656,6 +1656,7 @@ ssh git@github.com
 Hi YihuaWanglv! You've successfully authenticated, but GitHub does not provide shell access
 
 最后一步：
+在你检出的某个本地repository中，修改.git/config内的配置，由https改为ssh或git.
 Edit your .git/config file so that the url is using either ssh or git protocol instead of https:
 
 url = git@github.com:yourgithubaccount/yourgithubrepository.git
