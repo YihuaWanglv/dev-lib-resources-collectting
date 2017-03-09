@@ -1623,3 +1623,43 @@ public class Application extends SpringBootServletInitializer {
 ```
 
 
+56. SSH key的生成和使用
+先看下是否已存在sshkey信息：
+```
+ls -al ~/.ssh
+```
+生成秘钥：
+```
+ssh-keygen -t rsa -C "wanglvyihua@gmail.com"
+```
+
+```
+eval "$(ssh-agent -s)"
+```
+添加密钥到ssh：
+```
+ssh-add ~/.ssh/id_rsa
+```
+过程中会要求输入一些密码，这里直接回车留空即可.
+
+查看并复制秘钥，保存到github：
+```
+cat /root/.ssh/id_rsa.pub
+```
+查看key，复制sshkey，登陆github，保存key到sshkey列表
+
+测试一下：
+```
+ssh git@github.com
+```
+会收到一下信息：
+Hi YihuaWanglv! You've successfully authenticated, but GitHub does not provide shell access
+
+最后一步：
+Edit your .git/config file so that the url is using either ssh or git protocol instead of https:
+
+url = git@github.com:yourgithubaccount/yourgithubrepository.git
+
+然后就可以不用密码直接ssh提交git了。
+
+
