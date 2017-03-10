@@ -1624,6 +1624,10 @@ public class Application extends SpringBootServletInitializer {
 
 
 56. SSH key的生成和使用
+
+git config --global user.name "yihuawanglv"
+git config --global user.email wanglvyihua@gmail.com
+
 先看下是否已存在sshkey信息：
 ```
 ls -al ~/.ssh
