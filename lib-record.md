@@ -1741,11 +1741,233 @@ or
 
 /usr/libexec/iptables/iptables.init save
 ```
-58. gg
-59. gg
-60. gg
-61. gg
-62. gg
-63. gg
+58. github强制覆盖本地
+```
+git fetch --all  
+git reset --hard origin/master 
+git pull
+```
+59. maven国内镜像
+```
+<mirrors>
+    <mirror>
+      <id>alimaven</id>
+      <name>aliyun maven</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <mirrorOf>central</mirrorOf>        
+    </mirror>
+  </mirrors>
+```
+60. linux centos install supervisord 用来批量管理应用的启动关闭
+```
+yum -y install supervisord --enablerepo=epel
+出现错误：error getting repository data for epel repository not found
+
+
+How To Enable EPEL Repository in RHEL/CentOS 7/6/5?
+First, you need to download the file using Wget and then install it using RPM on your system to enable the EPEL repository. Use below links based on your Linux OS versions. (Make sure you must be root user).
+
+RHEL/CentOS 7 64 Bit
+
+## RHEL/CentOS 7 64-Bit ##
+# wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
+# rpm -ivh epel-release-7-8.noarch.rpm
+RHEL/CentOS 6 32-64 Bit
+
+## RHEL/CentOS 6 32-Bit ##
+# wget http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+# rpm -ivh epel-release-6-8.noarch.rpm
+## RHEL/CentOS 6 64-Bit ##
+# wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+# rpm -ivh epel-release-6-8.noarch.rpm
+RHEL/CentOS 5 32-64 Bit
+
+## RHEL/CentOS 5 32-Bit ##
+# wget http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+# rpm -ivh epel-release-5-4.noarch.rpm
+## RHEL/CentOS 5 64-Bit ##
+# wget http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+# rpm -ivh epel-release-5-4.noarch.rpm
+RHEL/CentOS 4 32-64 Bit
+
+## RHEL/CentOS 4 32-Bit ##
+# wget http://download.fedoraproject.org/pub/epel/4/i386/epel-release-4-10.noarch.rpm
+# rpm -ivh epel-release-4-10.noarch.rpm
+## RHEL/CentOS 4 64-Bit ##
+# wget http://download.fedoraproject.org/pub/epel/4/x86_64/epel-release-4-10.noarch.rpm
+# rpm -ivh epel-release-4-10.noarch.rpm
+
+
+
+
+vi /etc/supervisord.conf
+
+
+[program:elasticsearch]
+directory=/usr/local/elasticsearch
+command=/usr/local/elasticsearch/bin/elasticsearch
+[program:kibana]
+directory=/usr/local/kibana
+command=/usr/local/kibana/bin/kibana
+```
+61. install redis
+```
+yum install epel-release
+yum install redis
+
+启动：
+/usr/sbin/redis-server /etc/redis.conf
+
+```
+62. install mos
+```
+Step 1: Add the CentOS 7 mosquitto repository
+
+$ cd /etc/yum.repos.d
+$ wget http://download.opensuse.org/repositories/home:/oojah:/mqtt/CentOS_CentOS-6/home:oojah:mqtt.repo
+$ sudo yum update
+Step 2: Install mosquitto & mosquitto-clients
+
+$ sudo yum install mosquitto
+$ sudo yum install mosquitto-clients
+Step 3: Run mosquitto
+
+$ sudo su
+# /usr/sbin/mosquitto -d -c /etc/mosquitto/mosquitto.conf > /var/log/mosquitto.log 2>&1
+Step 4: Test mosquitto_sub & mosquitto_pub
+
+$ mosquitto_sub -h [server_address] -t /[topic]
+$ mosquitto_pub -h [server_address] -t /[topic] -m “[message]”
+测试例子：
+监听：
+mosquitto_sub -t mqtt
+发布：
+mosquitto_pub -h localhost -t mqtt -m "hello world"
+
+
+```
+63. docker jenkings gitlab
+```
+docker pull jenkinsci/jenkings
+
+docker run -d -u root -m 500m -p 8080:8080 -v ~/jenkins:/var/jenkins_home --name jenkins jenkinsci/jenkins
+
+unlock jenkins:c1bbf6aaa7aa4bd99cfcc0fb4a56ec83
+
+访问：http://localhost:8080
+
+docker logs -f jenkins
+
+
+
+
+docker pull gitlab/gitlab-ce
+
+docker run -d -m 512m -h gitlab.iyihua.com -p 23:23 -p 80:80 -v ~/gitlab/etc:/etc/gitlab -v ~/gitlab/log:/var/log/gitlab -v ~/gitlab/opt:/var/opt/gitlab --name gitlab gitlab/gitlab-ce
+
+log:
+Installing gitlab.rb config...
+Generating ssh_host_rsa_key...
+Generating public/private rsa key pair.
+Your identification has been saved in /etc/gitlab/ssh_host_rsa_key.
+Your public key has been saved in /etc/gitlab/ssh_host_rsa_key.pub.
+The key fingerprint is:
+SHA256:9UqlsZ/sfFw7A2itqn9IHH4mw84gH8xxbxtnYFQS5Kw root@gitlab.iyihua.com
+
+
+Generating ssh_host_ed25519_key...
+Generating public/private ed25519 key pair.
+Your identification has been saved in /etc/gitlab/ssh_host_ed25519_key.
+Your public key has been saved in /etc/gitlab/ssh_host_ed25519_key.pub.
+The key fingerprint is:
+SHA256:7SvmKMp+JdRHadLQImbl+/xFpEBzK9Yo8Kt0J3NzAFk root@gitlab.iyihua.com
+
+
+
+```
+64. 构建dockerfile并推送到注册中心的脚本
+```
+API_NAME="spring-boot-docker"
+API_VERSION="1.0.0"
+API_PORT=8101
+IMAGE_NAME="127.0.0.1:5000/com.iyihua/$API_NAME:$BUILD_NUMBER"
+CONTAINER_NAME=$API_NAME-$API_VERSION
+
+cd $WORKSPACE/$API_NAME/target
+cp classes/Dockerfile .
+
+docker build -t $IMAGE_NAME .
+
+docker push $IMAGE_NAME
+
+cid=$(docker ps | grep "$CONTAINER_NAME" | awk '{print $1}')
+if [ "$cid" != "" ]; then
+  docker rm -f $cid
+fi
+
+docker run -d -p $API_PORT:$API_PORT --name $CONTAINER_NAME $IMAGE_NAME
+
+rm -f Dockerfile
+```
+65. centos安装jenkins
+```
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+
+yum install jenkins
+
+# 修改端口和用户
+vi /etc/sysconfig/jenkins
+
+service jenkins start
+
+#设置开机启动
+chkconfig jenkins on
+```
+66. centos7安装es1.7.3
+```
+YUMedit
+Download and install the public signing key:
+
+rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
+Add the following in your /etc/yum.repos.d/ directory in a file with a .repo suffix, for example elasticsearch.repo
+
+[elasticsearch-1.7]
+name=Elasticsearch repository for 1.7.x packages
+baseurl=http://packages.elastic.co/elasticsearch/1.7/centos
+gpgcheck=1
+gpgkey=http://packages.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+And your repository is ready for use. You can install it with:
+
+yum install elasticsearch
+Configure Elasticsearch to automatically start during bootup. If your distribution is using SysV init (check with ps -p 1), then you will need to run:
+
+Warning
+The repositories do not work with older rpm based distributions that still use RPM v3, like CentOS5.
+
+chkconfig --add elasticsearch
+Otherwise if your distribution is using systemd:
+
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable elasticsearch.service
+```
+67. gg
+68. gg
+69. gg
+70. gg
+71. gg
+72. gg
+73. gg
+74. gg
+75. gg
+76. gg
+77. gg
+78. gg
+79. gg
+80. gg
+81. gg
+82. gg
+83. gg
 
 
