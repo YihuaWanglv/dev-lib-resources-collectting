@@ -43,6 +43,8 @@
 -A INPUT -m state –state NEW -m tcp -p tcp –dport 2888 -j ACCEPT
 -A INPUT -m state –state NEW -m tcp -p tcp –dport 3888 -j ACCEPT
 -A INPUT -m state –state NEW -m tcp -p tcp –dport 9092 -j ACCEPT
+-A INPUT -m state –state NEW -m tcp -p tcp –dport 9200 -j ACCEPT
+-A INPUT -m state –state NEW -m tcp -p tcp –dport 9300 -j ACCEPT
 
 
     /etc/init.d/iptables restart
@@ -1666,5 +1668,84 @@ Edit your .git/config file so that the url is using either ssh or git protocol i
 url = git@github.com:yourgithubaccount/yourgithubrepository.git
 
 然后就可以不用密码直接ssh提交git了。
+
+
+57. centos7 firewall 开启端口
+```
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+
+命令含义：
+ 
+--zone #作用域
+ 
+--add-port=80/tcp  #添加端口，格式为：端口/通讯协议
+ 
+--permanent   #永久生效，没有此参数重启后失效
+ 
+重启防火墙
+ 
+firewall-cmd --reload
+
+
+
+
+firewall-cmd --zone=public --add-port=21/tcp --permanent
+firewall-cmd --zone=public --add-port=30000:31000/tcp --permanent
+firewall-cmd --zone=public --add-port=21/tcp --permanent
+
+useradd -d /home/iyihua/upload -s /sbin/nologin ftpuser
+
+1、关闭firewall：
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
+2、iptables防火墙（这里iptables已经安装，下面进行配置）
+vi/etc/sysconfig/iptables #编辑防火墙配置文件
+# sampleconfiguration for iptables service
+# you can edit thismanually or use system-config-firewall
+# please do not askus to add additional ports/services to this default configuration
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT[0:0]
+:OUTPUT ACCEPT[0:0]
+-A INPUT -m state--state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p icmp -jACCEPT
+-A INPUT -i lo -jACCEPT
+-A INPUT -p tcp -mstate --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -jACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 8080-j ACCEPT
+-A INPUT -j REJECT--reject-with icmp-host-prohibited
+-A FORWARD -jREJECT --reject-with icmp-host-prohibited
+COMMIT
+:wq! #保存退出
+
+
+
+
+
+systemctl stop firewalld
+systemctl mask firewalld
+Then, install the iptables-services package:
+
+yum install iptables-services
+Enable the service at boot-time:
+
+systemctl enable iptables
+Managing the service
+
+systemctl [stop|start|restart] iptables
+Saving your firewall rules can be done as follows:
+
+service iptables save
+or
+
+/usr/libexec/iptables/iptables.init save
+```
+58. gg
+59. gg
+60. gg
+61. gg
+62. gg
+63. gg
 
 
