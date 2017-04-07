@@ -6,7 +6,28 @@
 
 
 
-## 2017-02
+## 2017-04
+
+### 2017-04-07
+
+- [CloudReader](https://github.com/youlookwhat/CloudReader): 云阅：一款基于网易云音乐UI，使用Gank.Io及豆瓣api开发的符合Google Material Design的Android客户端。项目采取的是MVVM-DataBinding架构开发，现主要包括：干货区、电影区和书籍区三个子模块。DIY网易云音乐原来是如此Cool
+- [react-native-gank](https://github.com/poberwong/react-native-gank): 为 Gank.io 做的一个 React-Native 移动客户端
+- [DoubanMovie-React-Native](https://github.com/fengjundev/DoubanMovie-React-Native): DoubanMovie made with React Native
+- [GankDaily](https://github.com/maoruibin/GankDaily): A application used to show technical information in every working days, use MVP pattern. http://fir.im/gankdaily
+- [Watch](https://github.com/tuesda/Watch): A project which demonstrate how to develop a custom client on android for dribbble.com
+- [AndroidFire](https://github.com/jaydenxiao2016/AndroidFire): AndroidFire，一款新闻阅读 App框架，基于 Material Design + MVP + RxJava + Retrofit + Glide，基本涵盖了当前 Android 端开发最常用的主流框架，基于此框架可以快速开发一个app。
+- [](): 
+- [](): 
+- [](): 
+- [](): 
+
+### 2017-04-05
+
+- [Firebucket](https://github.com/remychantenay/Firebucket) : Glimpse into Firebase, with a simple TODO list app built around Dagger, RxJava 2, Clean architecture and of course, Firebase. https://medium.com/@remy.chantenay/f1…
+
+- [最大努力通知？No，事务消息](https://zhuanlan.zhihu.com/p/26114119?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io) :本文几乎看不到任何理论分析，只谈做什么，怎么做。
+
+## 2017-03
 
 ### 2017-03-31
 
