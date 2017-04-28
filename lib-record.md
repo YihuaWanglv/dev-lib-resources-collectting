@@ -2002,8 +2002,347 @@ maven { url 'http://maven.aliyun.com/mvn/repository/' }
 
 
 ```
-68. gg
-69. gg
+68. Elasticsearch手札
+
+```
+## 索引文档
+
+和关系数据库对比：
+Relational DB -> Databases -> Tables -> Rows -> Columns
+Elasticsearch -> Indices   -> Types  -> Documents -> Fields
+
+PUT /megacorp/employee/1
+{
+    "first_name" : "John",
+    "last_name" :  "Smith",
+    "age" :        25,
+    "about" :      "I love to go rock climbing",
+    "interests": [ "sports", "music" ]
+}
+
+## 检索文档
+
+### 请求单个文档：
+GET /megacorp/employee/1
+
+## 简单搜索
+
+### 搜索索引和类型下全部文档
+GET /megacorp/employee/_search
+
+### 查询字符串(query string)搜索
+GET /megacorp/employee/_search?q=last_name:Smith
+
+## 使用DSL语句查询
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "last_name" : "Smith"
+        }
+    }
+}
+
+## 更复杂的搜索
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "filtered" : {
+            "filter" : {
+                "range" : {
+                    "age" : { "gt" : 30 } <1>
+                }
+            },
+            "query" : {
+                "match" : {
+                    "last_name" : "smith" <2>
+                }
+            }
+        }
+    }
+}
+
+## 全文搜索
+根据_score进行相关性(relevance)搜索
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+
+## 短语搜索
+确切的匹配若干个单词或者短语(phrases)，则使用match_phrase查询
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+
+## 高亮我们的搜索
+语句上增加highlight参数
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    },
+    "highlight": {
+        "fields" : {
+            "about" : {}
+        }
+    }
+}
+
+
+# 聚合(aggregations)
+
+
+找到所有职员中最大的共同点（兴趣爱好）是什么：
+GET /megacorp/employee/_search
+{
+  "aggs": {
+    "all_interests": {
+      "terms": { "field": "interests" }
+    }
+  }
+}
+查询结果：
+{
+   ...
+   "hits": { ... },
+   "aggregations": {
+      "all_interests": {
+         "buckets": [
+            {
+               "key":       "music",
+               "doc_count": 2
+            },
+            {
+               "key":       "forestry",
+               "doc_count": 1
+            },
+            {
+               "key":       "sports",
+               "doc_count": 1
+            }
+         ]
+      }
+   }
+}
+
+所有姓"Smith"的人最大的共同点（兴趣爱好）
+GET /megacorp/employee/_search
+{
+  "query": {
+    "match": {
+      "last_name": "smith"
+    }
+  },
+  "aggs": {
+    "all_interests": {
+      "terms": {
+        "field": "interests"
+      }
+    }
+  }
+}
+
+聚合也允许分级汇总。例如，让我们统计每种兴趣下职员的平均年龄：
+GET /megacorp/employee/_search
+{
+    "aggs" : {
+        "all_interests" : {
+            "terms" : { "field" : "interests" },
+            "aggs" : {
+                "avg_age" : {
+                    "avg" : { "field" : "age" }
+                }
+            }
+        }
+    }
+}
+结果：
+...
+  "all_interests": {
+     "buckets": [
+        {
+           "key": "music",
+           "doc_count": 2,
+           "avg_age": {
+              "value": 28.5
+           }
+        },
+        {
+           "key": "forestry",
+           "doc_count": 1,
+           "avg_age": {
+              "value": 35
+           }
+        },
+        {
+           "key": "sports",
+           "doc_count": 1,
+           "avg_age": {
+              "value": 25
+           }
+        }
+     ]
+  }
+
+
+
+
+
+
+
+# 数据
+
+## 索引
+
+### 索引一个文档
+
+#### 使用自己的ID
+PUT /{index}/{type}/{id}
+{
+  "field": "value",
+  ...
+}
+
+#### 自增ID
+请求结构发生了变化：
+PUT方法——“在这个URL中存储文档”变成了POST方法——"在这个类型下存储文档"。
+（原来是把文档存储到某个ID对应的空间，现在是把这个文档添加到某个_type下）
+
+POST /website/blog/
+{
+  "title": "My second blog entry",
+  "text":  "Still trying this out...",
+  "date":  "2014/01/01"
+}
+
+## 获取
+
+### 检索文档
+GET /website/blog/123?pretty
+
+curl后加-i参数得到响应头：
+curl -i -XGET http://localhost:9200/website/blog/124?pretty
+
+### 检索文档的一部分：
+请求个别字段可以使用_source参数。多个字段可以使用逗号分隔：
+GET /website/blog/123?_source=title,text
+
+只想得到_source字段而不要其他的元数据：
+GET /website/blog/123/_source
+
+## 存在
+### 检查文档是否存在
+
+使用HEAD方法来代替GET。HEAD请求不会返回响应体，只有HTTP头：
+
+curl -i -XHEAD http://localhost:9200/website/blog/123
+
+返回200 OK状态如果你的文档存在：
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 0
+
+不存在返回404 Not Found：
+HTTP/1.1 404 Not Found
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 0
+
+
+## 更新
+### 更新整个文档
+可以使用index API 重建索引(reindex) 或者替换掉原有文档
+PUT /website/blog/123
+{
+  "title": "My first blog entry",
+  "text":  "I am starting to get the hang of this...",
+  "date":  "2014/01/02"
+}
+
+
+## 创建
+### 创建一个新文档
+
+当索引一个文档，我们如何确定是完全创建了一个新的还是覆盖了一个已经存在的呢？
+
+要想保证文档是新加入的，最简单的方式是使用POST方法让Elasticsearch自动生成唯一_id
+
+如果想使用自定义的_id，以选择适合自己的方式：
+第一种方法使用op_type查询参数：
+PUT /website/blog/123?op_type=create
+{ ... }
+或者第二种方法是在URL后加/_create做为端点：
+PUT /website/blog/123/_create
+{ ... }
+
+请求成功的创建了一个新文档，Elasticsearch将返回正常的元数据且响应状态码是201 Created。
+
+如果包含相同的_index、_type和_id的文档已经存在，Elasticsearch将返回409 Conflict响应状态码
+
+## 删除
+### 删除文档
+
+DELETE /website/blog/123
+
+
+## 版本控制
+
+### 乐观并发控制（Optimistic concurrency control）
+
+_version保证所有修改都被正确排序。当一个旧版本出现在新版本之后，它会被简单的忽略。
+指定文档的version来做想要的更改。如果那个版本号不是现在的，我们的请求就失败了。
+
+通过重新索引文档保存修改时，我们这样指定了version参数：
+PUT /website/blog/1?version=1
+{
+  "title": "My first blog entry",
+  "text":  "Starting to get the hang of this..."
+}
+
+### 使用外部版本控制系统
+
+创建一个包含外部版本号5的新博客，我们可以这样做：
+PUT /website/blog/2?version=5&version_type=external
+{
+  "title": "My first external blog entry",
+  "text":  "Starting to get the hang of this..."
+}
+
+现在我们更新这个文档，指定一个新version号码为10：
+PUT /website/blog/2?version=10&version_type=external
+{
+  "title": "My first external blog entry",
+  "text":  "This is a piece of cake..."
+}
+
+
+
+```
+
+
+
+69. How to stop Jenkins log from becoming huge?
+```
+From the Jenkins web interface go to:
+
+ Manage Jenkins -> System Log -> Log Levels (on the left)
+Add the following entry:
+
+Name: javax.jmdns
+
+Level: off
+```
 70. gg
 71. gg
 72. gg
