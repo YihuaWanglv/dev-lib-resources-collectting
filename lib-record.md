@@ -2343,7 +2343,21 @@ Name: javax.jmdns
 
 Level: off
 ```
-70. gg
+70. ngrok使用
+```
+1.下载，并注册ngrok账号.
+2.访问https://dashboard.ngrok.com/get-started
+3.根据提示安装本地认证
+Install your authtoken
+./ngrok authtoken 88DJ5FHE82Y6xK1487CLP_sdD9USeSedVhmCRzk2F5
+4.启动http指向本地服务的端口
+Create your first secure tunnel
+./ngrok http 8300
+5.访问管理页面
+Open the web interface at http://localhost:4040 to inspect and replay requests
+管理页面会给出一个外网访问的跟域名地址：https://6ca95e90.ngrok.io
+```
+
 71. gg
 72. gg
 73. gg
