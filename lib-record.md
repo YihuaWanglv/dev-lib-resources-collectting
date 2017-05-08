@@ -2358,7 +2358,50 @@ Open the web interface at http://localhost:4040 to inspect and replay requests
 管理页面会给出一个外网访问的跟域名地址：https://6ca95e90.ngrok.io
 ```
 
-71. gg
+71. spring-mvc 非 controller 层获取HttpServletRequest
+```
+在项目中记录操作日志，是一种很常见的需求。
+
+有时我们在service或者dao层记录日志，需要同时保存访问ip、登录用户名等。如果从controller层把HttpServletRequest 对象传过去会显得很麻烦。HttpSession可以通过HttpServletRequest 间接获取。
+
+需要注意的是RequestContextListener实现了javax.servlet.ServletRequestListener，这是servlet2.4之后才有的，一些比较老的容器使用这一功能会报空指针异常。
+
+在web.xml配置
+
+<listener>
+  <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+ </listener>
+
+
+在service或者dao中获取HttpServletRequest 的代码如下
+
+HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+                    .getRequestAttributes()).getRequest();
+
+
+他的原理就是使用ThreadLocal，RequestContextListener监听器将HttpServletRequest绑定到当前线程。以下是部分源码
+
+public class RequestContextListener implements ServletRequestListener {
+
+    private static final String REQUEST_ATTRIBUTES_ATTRIBUTE =
+            RequestContextListener.class.getName() + ".REQUEST_ATTRIBUTES";
+
+
+    public void requestInitialized(ServletRequestEvent requestEvent) {
+        if (!(requestEvent.getServletRequest() instanceof HttpServletRequest)) {
+            throw new IllegalArgumentException(
+                    "Request is not an HttpServletRequest: " + requestEvent.getServletRequest());
+        }
+        HttpServletRequest request = (HttpServletRequest) requestEvent.getServletRequest();
+        ServletRequestAttributes attributes = new ServletRequestAttributes(request);
+        request.setAttribute(REQUEST_ATTRIBUTES_ATTRIBUTE, attributes);
+        LocaleContextHolder.setLocale(request.getLocale());
+        RequestContextHolder.setRequestAttributes(attributes);
+    }
+// ...
+}
+
+```
 72. gg
 73. gg
 74. gg
