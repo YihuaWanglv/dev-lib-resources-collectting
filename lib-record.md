@@ -2463,7 +2463,19 @@ zabbix监控添加主机，报警、监控的设置: http://wangwei007.blog.51ct
 
 
 ```
-73. gg
+73. centos7 nodejs npm bower
+```
+Installing Node.js 7.x on CentOS 7
+
+Node.js provides a script for CentOS/Fedora/RHEL based distributions, which checks your operating system and adds the corresponding RPM repository for yum, the standard package manager:
+# Install Node.js 7.x repository
+curl -sL https://rpm.nodesource.com/setup_7.x | bash -
+
+# Install Node.js and npm
+yum install nodejs
+
+npm install bower -g
+```
 74. gg
 75. gg
 76. gg
