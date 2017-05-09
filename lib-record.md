@@ -2402,7 +2402,67 @@ public class RequestContextListener implements ServletRequestListener {
 }
 
 ```
-72. gg
+72. spring boot的监控工具
+```
+监控整体: spring boot admin
+监控服务接口: hystrix-dashboard
+监控微服务链路: sleuth+zipkin
+微服务看板: http://ordina-jworks.github.io/microservices-dashboard/1.0.1/
+
+sleuth+zipkin 项目例子：
+https://github.com/YihuaWanglv/spring-cloud-netflix-example
+
+springboot statsd --> graphite --> cabot报警
+
+资料：
+DevOps实战：Graphite监控上手指南: http://www.infoq.com/cn/articles/graphite-intro
+
+
+Metrics+InfluxDB+Grafana 构建应用程序实时监控系统
+
+使用Metrics监控应用程序的性能:
+http://www.cnblogs.com/yangecnu/p/Using-Metrics-to-Profiling-WebService-Performance.html
+
+https://github.com/dropwizard/metrics
+
+Intelligent microservice metrics with Spring Boot and Statsd
+https://objectpartners.com/2015/05/07/intelligent-microservice-metrics-with-spring-boot-and-statsd/
+
+https://github.com/tokuhirom/java-samples/tree/master/spring-boot-graphite-demo
+
+https://github.com/jgoelen/graphite-spring-boot-starter
+
+Pushing metrics to Graphite from a Spring Boot Cassandra application
+http://batey.info/pushing-metrics-to-graphite-from-spring.html
+
+
+Metrics —— JVM上的实时监控类库:
+http://www.jianshu.com/p/e4f70ddbc287
+
+cabot:
+https://github.com/arachnys/cabot
+http://cabotapp.com/
+
+
+
+
+Atlas+Spectator+Grafana做展示，对收集的指标进行了一定得扩展。
+
+Atlas:
+spring cloud atlas使用: https://segmentfault.com/a/1190000008527553
+
+Atlas+Spectator+Grafana搭建实时监控平台: https://my.oschina.net/u/2408085/blog/733900
+
+
+
+
+zabbix:
+
+zabbix监控添加主机，报警、监控的设置: http://wangwei007.blog.51cto.com/68019/1048154
+
+
+
+```
 73. gg
 74. gg
 75. gg
