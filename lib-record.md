@@ -2002,7 +2002,21 @@ maven { url 'http://maven.aliyun.com/mvn/repository/' }
 
 
 ```
-68. gg
+68. vue-cli项目 npm install时报错“error MSB3428: 未能加载 Visual C++ 组件“VCBuild.exe””
+```
+加host
+219.76.4.4    github-cloud.s3.amazonaws.com
+
+下载
+https://github.com/sass/node-sass/releases/download/v3.13.1/win32-x64-48_binding.node
+
+文件放到合适的位置，并set XXX=文件路经
+set SASS_BINARY_PATH=D:\tools\nodelibs\node-sass\win32-x64-48_binding.node
+
+查看环境是否合适：echo %SASS_BINARY_PATH%
+如果打印出来您配置好的文件地址那就ok了
+```
+
 69. gg
 70. gg
 71. gg
