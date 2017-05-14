@@ -2002,7 +2002,482 @@ maven { url 'http://maven.aliyun.com/mvn/repository/' }
 
 
 ```
-68. vue-cli项目 npm install时报错“error MSB3428: 未能加载 Visual C++ 组件“VCBuild.exe””
+68. Elasticsearch手札
+
+```
+## 索引文档
+
+和关系数据库对比：
+Relational DB -> Databases -> Tables -> Rows -> Columns
+Elasticsearch -> Indices   -> Types  -> Documents -> Fields
+
+PUT /megacorp/employee/1
+{
+    "first_name" : "John",
+    "last_name" :  "Smith",
+    "age" :        25,
+    "about" :      "I love to go rock climbing",
+    "interests": [ "sports", "music" ]
+}
+
+## 检索文档
+
+### 请求单个文档：
+GET /megacorp/employee/1
+
+## 简单搜索
+
+### 搜索索引和类型下全部文档
+GET /megacorp/employee/_search
+
+### 查询字符串(query string)搜索
+GET /megacorp/employee/_search?q=last_name:Smith
+
+## 使用DSL语句查询
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "last_name" : "Smith"
+        }
+    }
+}
+
+## 更复杂的搜索
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "filtered" : {
+            "filter" : {
+                "range" : {
+                    "age" : { "gt" : 30 } <1>
+                }
+            },
+            "query" : {
+                "match" : {
+                    "last_name" : "smith" <2>
+                }
+            }
+        }
+    }
+}
+
+## 全文搜索
+根据_score进行相关性(relevance)搜索
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+
+## 短语搜索
+确切的匹配若干个单词或者短语(phrases)，则使用match_phrase查询
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+
+## 高亮我们的搜索
+语句上增加highlight参数
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    },
+    "highlight": {
+        "fields" : {
+            "about" : {}
+        }
+    }
+}
+
+
+# 聚合(aggregations)
+
+
+找到所有职员中最大的共同点（兴趣爱好）是什么：
+GET /megacorp/employee/_search
+{
+  "aggs": {
+    "all_interests": {
+      "terms": { "field": "interests" }
+    }
+  }
+}
+查询结果：
+{
+   ...
+   "hits": { ... },
+   "aggregations": {
+      "all_interests": {
+         "buckets": [
+            {
+               "key":       "music",
+               "doc_count": 2
+            },
+            {
+               "key":       "forestry",
+               "doc_count": 1
+            },
+            {
+               "key":       "sports",
+               "doc_count": 1
+            }
+         ]
+      }
+   }
+}
+
+所有姓"Smith"的人最大的共同点（兴趣爱好）
+GET /megacorp/employee/_search
+{
+  "query": {
+    "match": {
+      "last_name": "smith"
+    }
+  },
+  "aggs": {
+    "all_interests": {
+      "terms": {
+        "field": "interests"
+      }
+    }
+  }
+}
+
+聚合也允许分级汇总。例如，让我们统计每种兴趣下职员的平均年龄：
+GET /megacorp/employee/_search
+{
+    "aggs" : {
+        "all_interests" : {
+            "terms" : { "field" : "interests" },
+            "aggs" : {
+                "avg_age" : {
+                    "avg" : { "field" : "age" }
+                }
+            }
+        }
+    }
+}
+结果：
+...
+  "all_interests": {
+     "buckets": [
+        {
+           "key": "music",
+           "doc_count": 2,
+           "avg_age": {
+              "value": 28.5
+           }
+        },
+        {
+           "key": "forestry",
+           "doc_count": 1,
+           "avg_age": {
+              "value": 35
+           }
+        },
+        {
+           "key": "sports",
+           "doc_count": 1,
+           "avg_age": {
+              "value": 25
+           }
+        }
+     ]
+  }
+
+
+
+
+
+
+
+# 数据
+
+## 索引
+
+### 索引一个文档
+
+#### 使用自己的ID
+PUT /{index}/{type}/{id}
+{
+  "field": "value",
+  ...
+}
+
+#### 自增ID
+请求结构发生了变化：
+PUT方法——“在这个URL中存储文档”变成了POST方法——"在这个类型下存储文档"。
+（原来是把文档存储到某个ID对应的空间，现在是把这个文档添加到某个_type下）
+
+POST /website/blog/
+{
+  "title": "My second blog entry",
+  "text":  "Still trying this out...",
+  "date":  "2014/01/01"
+}
+
+## 获取
+
+### 检索文档
+GET /website/blog/123?pretty
+
+curl后加-i参数得到响应头：
+curl -i -XGET http://localhost:9200/website/blog/124?pretty
+
+### 检索文档的一部分：
+请求个别字段可以使用_source参数。多个字段可以使用逗号分隔：
+GET /website/blog/123?_source=title,text
+
+只想得到_source字段而不要其他的元数据：
+GET /website/blog/123/_source
+
+## 存在
+### 检查文档是否存在
+
+使用HEAD方法来代替GET。HEAD请求不会返回响应体，只有HTTP头：
+
+curl -i -XHEAD http://localhost:9200/website/blog/123
+
+返回200 OK状态如果你的文档存在：
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 0
+
+不存在返回404 Not Found：
+HTTP/1.1 404 Not Found
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 0
+
+
+## 更新
+### 更新整个文档
+可以使用index API 重建索引(reindex) 或者替换掉原有文档
+PUT /website/blog/123
+{
+  "title": "My first blog entry",
+  "text":  "I am starting to get the hang of this...",
+  "date":  "2014/01/02"
+}
+
+
+## 创建
+### 创建一个新文档
+
+当索引一个文档，我们如何确定是完全创建了一个新的还是覆盖了一个已经存在的呢？
+
+要想保证文档是新加入的，最简单的方式是使用POST方法让Elasticsearch自动生成唯一_id
+
+如果想使用自定义的_id，以选择适合自己的方式：
+第一种方法使用op_type查询参数：
+PUT /website/blog/123?op_type=create
+{ ... }
+或者第二种方法是在URL后加/_create做为端点：
+PUT /website/blog/123/_create
+{ ... }
+
+请求成功的创建了一个新文档，Elasticsearch将返回正常的元数据且响应状态码是201 Created。
+
+如果包含相同的_index、_type和_id的文档已经存在，Elasticsearch将返回409 Conflict响应状态码
+
+## 删除
+### 删除文档
+
+DELETE /website/blog/123
+
+
+## 版本控制
+
+### 乐观并发控制（Optimistic concurrency control）
+
+_version保证所有修改都被正确排序。当一个旧版本出现在新版本之后，它会被简单的忽略。
+指定文档的version来做想要的更改。如果那个版本号不是现在的，我们的请求就失败了。
+
+通过重新索引文档保存修改时，我们这样指定了version参数：
+PUT /website/blog/1?version=1
+{
+  "title": "My first blog entry",
+  "text":  "Starting to get the hang of this..."
+}
+
+### 使用外部版本控制系统
+
+创建一个包含外部版本号5的新博客，我们可以这样做：
+PUT /website/blog/2?version=5&version_type=external
+{
+  "title": "My first external blog entry",
+  "text":  "Starting to get the hang of this..."
+}
+
+现在我们更新这个文档，指定一个新version号码为10：
+PUT /website/blog/2?version=10&version_type=external
+{
+  "title": "My first external blog entry",
+  "text":  "This is a piece of cake..."
+}
+
+
+
+```
+
+
+
+69. How to stop Jenkins log from becoming huge?
+```
+From the Jenkins web interface go to:
+
+ Manage Jenkins -> System Log -> Log Levels (on the left)
+Add the following entry:
+
+Name: javax.jmdns
+
+Level: off
+```
+70. ngrok使用
+```
+1.下载，并注册ngrok账号.
+2.访问https://dashboard.ngrok.com/get-started
+3.根据提示安装本地认证
+Install your authtoken
+./ngrok authtoken 88DJ5FHE82Y6xK1487CLP_sdD9USeSedVhmCRzk2F5
+4.启动http指向本地服务的端口
+Create your first secure tunnel
+./ngrok http 8300
+5.访问管理页面
+Open the web interface at http://localhost:4040 to inspect and replay requests
+管理页面会给出一个外网访问的跟域名地址：https://6ca95e90.ngrok.io
+```
+
+71. spring-mvc 非 controller 层获取HttpServletRequest
+```
+在项目中记录操作日志，是一种很常见的需求。
+
+有时我们在service或者dao层记录日志，需要同时保存访问ip、登录用户名等。如果从controller层把HttpServletRequest 对象传过去会显得很麻烦。HttpSession可以通过HttpServletRequest 间接获取。
+
+需要注意的是RequestContextListener实现了javax.servlet.ServletRequestListener，这是servlet2.4之后才有的，一些比较老的容器使用这一功能会报空指针异常。
+
+在web.xml配置
+
+<listener>
+  <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+ </listener>
+
+
+在service或者dao中获取HttpServletRequest 的代码如下
+
+HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+                    .getRequestAttributes()).getRequest();
+
+
+他的原理就是使用ThreadLocal，RequestContextListener监听器将HttpServletRequest绑定到当前线程。以下是部分源码
+
+public class RequestContextListener implements ServletRequestListener {
+
+    private static final String REQUEST_ATTRIBUTES_ATTRIBUTE =
+            RequestContextListener.class.getName() + ".REQUEST_ATTRIBUTES";
+
+
+    public void requestInitialized(ServletRequestEvent requestEvent) {
+        if (!(requestEvent.getServletRequest() instanceof HttpServletRequest)) {
+            throw new IllegalArgumentException(
+                    "Request is not an HttpServletRequest: " + requestEvent.getServletRequest());
+        }
+        HttpServletRequest request = (HttpServletRequest) requestEvent.getServletRequest();
+        ServletRequestAttributes attributes = new ServletRequestAttributes(request);
+        request.setAttribute(REQUEST_ATTRIBUTES_ATTRIBUTE, attributes);
+        LocaleContextHolder.setLocale(request.getLocale());
+        RequestContextHolder.setRequestAttributes(attributes);
+    }
+// ...
+}
+
+```
+72. spring boot的监控工具
+```
+监控整体: spring boot admin
+监控服务接口: hystrix-dashboard
+监控微服务链路: sleuth+zipkin
+微服务看板: http://ordina-jworks.github.io/microservices-dashboard/1.0.1/
+
+sleuth+zipkin 项目例子：
+https://github.com/YihuaWanglv/spring-cloud-netflix-example
+
+springboot statsd --> graphite --> cabot报警
+
+资料：
+DevOps实战：Graphite监控上手指南: http://www.infoq.com/cn/articles/graphite-intro
+
+
+Metrics+InfluxDB+Grafana 构建应用程序实时监控系统
+
+使用Metrics监控应用程序的性能:
+http://www.cnblogs.com/yangecnu/p/Using-Metrics-to-Profiling-WebService-Performance.html
+
+https://github.com/dropwizard/metrics
+
+Intelligent microservice metrics with Spring Boot and Statsd
+https://objectpartners.com/2015/05/07/intelligent-microservice-metrics-with-spring-boot-and-statsd/
+
+https://github.com/tokuhirom/java-samples/tree/master/spring-boot-graphite-demo
+
+https://github.com/jgoelen/graphite-spring-boot-starter
+
+Pushing metrics to Graphite from a Spring Boot Cassandra application
+http://batey.info/pushing-metrics-to-graphite-from-spring.html
+
+
+Metrics —— JVM上的实时监控类库:
+http://www.jianshu.com/p/e4f70ddbc287
+
+cabot:
+https://github.com/arachnys/cabot
+http://cabotapp.com/
+
+
+
+
+Atlas+Spectator+Grafana做展示，对收集的指标进行了一定得扩展。
+
+Atlas:
+spring cloud atlas使用: https://segmentfault.com/a/1190000008527553
+
+Atlas+Spectator+Grafana搭建实时监控平台: https://my.oschina.net/u/2408085/blog/733900
+
+
+
+
+zabbix:
+
+zabbix监控添加主机，报警、监控的设置: http://wangwei007.blog.51cto.com/68019/1048154
+
+
+
+```
+73. centos7 nodejs npm bower
+```
+Installing Node.js 7.x on CentOS 7
+
+Node.js provides a script for CentOS/Fedora/RHEL based distributions, which checks your operating system and adds the corresponding RPM repository for yum, the standard package manager:
+# Install Node.js 7.x repository
+curl -sL https://rpm.nodesource.com/setup_7.x | bash -
+
+# Install Node.js and npm
+yum install nodejs
+
+npm install bower -g
+```
+
+74. vue-cli项目 npm install时报错“error MSB3428: 未能加载 Visual C++ 组件“VCBuild.exe””
 ```
 加host
 219.76.4.4    github-cloud.s3.amazonaws.com
@@ -2016,13 +2491,6 @@ set SASS_BINARY_PATH=D:\tools\nodelibs\node-sass\win32-x64-48_binding.node
 查看环境是否合适：echo %SASS_BINARY_PATH%
 如果打印出来您配置好的文件地址那就ok了
 ```
-
-69. gg
-70. gg
-71. gg
-72. gg
-73. gg
-74. gg
 75. gg
 76. gg
 77. gg
