@@ -2534,6 +2534,73 @@ jvm：
 ![](images/jvm-architecture.png)
 
 
+classloader：
+    class二进制文件加载到内存中的运行时数据区的方法区，在堆内存中创建class对象。
+
+    - 类的生命周期
+        - 加载
+        - 验证
+        - 准备：为静态变量分配内存，并将其初始化为默认值
+        - 解析：（顺序不定，可动态绑定）把类中的符号引用转换为直接引用
+        - 初始化：为类的静态变量赋予正确的初始值
+
+    jvm初始化：
+        步骤：
+            1.没有加载则先加载
+            2.父类没有初始化，则先初始化父类
+            3.如果类中有初始化语句，则系统依次执行
+        初始化时机：当对类的主动使用才会触发初始化
+
+    classloader:
+        bootstrap classloader
+        extension classloader
+        application classloader
+
+    jvm类加载机制：
+        - 全盘负责。如果一个类加载器负责加载某个class，则该class所依赖的和引用的其他class也将由该类加载器负责载入。
+        - 父类委托。先由父加载器尝试加载class，父加载器加载不到才会尝试从自己的类路径中加载。
+
+    类的加载：
+        1.命令行启动应用程序时由jvm初始化加载
+        2.通过Class.forName()动态加载。加载类到jvm之外，还会执行类中的static块
+        3.ClassLoader.loadClass()动态加载。不会执行static块。
+
+    双亲委派机制：
+
+    自定义classloader
+
+jvm内存结构：
+    堆内存
+        年轻代（8:1:1）
+            Eden
+            From Surviver
+            To Surviver
+        老生代
+    方法区（也叫永久代Permanent Generation）
+    栈
+    程序计数器
+
+    说明：
+        堆
+            线程共享，虚拟机启动时创建
+            唯一目的：存放对象实例
+
+        方法区Permanent Generation
+            线程共享
+            存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。
+        程序计数器
+            当前线程所执行的字节码行号的指示器。
+            线程私有，独立存储
+        栈
+            线程私有
+            每个方法执行时都会创建一个栈帧，用于存储局部变量表、操作栈、动态链接、方法出口等。
+        本地方法栈
+            为虚拟机native方法服务
+            
+
+    
+
+
 jvmGC算法和垃圾收集器
 
     对象存活判断：
@@ -2603,6 +2670,23 @@ jvm调优命令：
     - jinfo
         实时查看和调整虚拟机运行参数
         jinfo -flag 14455
+
+jvm调优：
+    jvm调优是什么？通过gc日志分析jvm的内存结构和回收情况，然后可以根据情况调整各区内存比例，或者调整gc回收策略；更深一层，是根据dump出来的内存结构和线程栈来分析代码中不合理的地方给予改进。
+
+    eclipse jvm调优经验：
+        避免内存频繁动态扩展，直接-Xms和-Xmx设置成一致。
+        内存加倍。
+        关闭字节码验证，从而加快classloader加载class. -Xverify:none
+
+jvm调优-工具：
+    - jdk自带：
+        jconsole
+        jvisualvm
+    - 第三方：
+        MAT：分析dump
+        GChisto：gc日志分析
+        gcviewer：
 
 
 ```
