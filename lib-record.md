@@ -2507,6 +2507,34 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 // 使用
 cnpm install express
 ```
+
+74. vue-cli项目 npm install时报错“error MSB3428: 未能加载 Visual C++ 组件“VCBuild.exe””
+```
+加host
+219.76.4.4    github-cloud.s3.amazonaws.com
+
+下载
+https://github.com/sass/node-sass/releases/download/v3.13.1/win32-x64-48_binding.node
+
+文件放到合适的位置，并set XXX=文件路经
+set SASS_BINARY_PATH=D:\tools\nodelibs\node-sass\win32-x64-48_binding.node
+
+查看环境是否合适：echo %SASS_BINARY_PATH%
+如果打印出来您配置好的文件地址那就ok了
+```
+75. jvm手记
+```
+jvm：
+    jvm是什么：是运行 Java 程序必不可少的机制。JVM是编译后的Java程序（.class文件）和硬件系统之间的接口。
+    特性：平台无关
+    原理：编译后的 Java 程序指令并不直接在硬件系统的 CPU 上执行，而是由 JVM 执行。java文件编译成class文件，jvm执行字节码时把字节码解析成具体平台上的机器执行来执行。
+    jvm的结构：JVM = 类加载器 classloader + 执行引擎 execution engine + 运行时数据区域 runtime data area。
+        classloader把硬盘上的class文件加载到JVM中的运行时数据区域,但是它不负责这个类文件能否执行，而这个是“执行引擎”负责的。
+
+![](images/jvm-architecture.png)
+
+```
+76. gg
 77. gg
 78. gg
 79. gg
