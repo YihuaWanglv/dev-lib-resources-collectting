@@ -2476,9 +2476,37 @@ yum install nodejs
 
 npm install bower -g
 ```
-74. gg
-75. gg
-76. gg
+74. centos7 docker-compose
+```
+curl -L https://github.com/docker/compose/releases/download/1.13.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+```
+75. centos remove openjdk
+```
+rpm -qa | grep java
+
+yum -y remove xxx
+```
+76. npm 国内源
+```
+1.临时使用
+
+npm --registry https://registry.npm.taobao.org install express
+2.持久使用
+
+npm config set registry https://registry.npm.taobao.org
+
+// 配置后可通过下面方式来验证是否成功
+npm config get registry
+// 或
+npm info express
+3.通过cnpm使用
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+// 使用
+cnpm install express
+```
 77. gg
 78. gg
 79. gg
