@@ -2533,6 +2533,78 @@ jvm：
 
 ![](images/jvm-architecture.png)
 
+
+jvmGC算法和垃圾收集器
+
+    对象存活判断：
+        引用计数
+        可达性分析：当一个对象到GC Roots没有任何引用链相连时，则为不可达。
+    gc算法：
+        - 标记-清除算法
+            缺点是碎片问题
+        - 复制算法
+            代价是内存缩小一半
+        - 标记压缩算法
+
+        - 分代收集算法
+            分新生代和老生代，分别采用适合的算法。新生代存活少，采用复制算法；老生代则只能用标记清除或标记压缩
+
+    垃圾收集器：
+        - Serial收集器 -XX:+UseSerialGC
+            串行，单线程，古老而稳定，停顿时间长。新生代用复制，老生代用标记压缩。收集过程会STW
+        - ParNew收集器 -XX:+UseParNewGC
+            Serial的多线程版本
+        - Parallel收集器 -XX:+UseParallelGC
+            关注吞吐量，通过参数打开自适应调节策略，收集性能监控信息动态调整参数以提供最合适的停顿时间或最大吞吐量。
+        - Parallel Old收集器 -XX:+UseParallelOldGC
+            使用Parallel收集器+老年代并行
+        - CMS收集器 -XX:+UseConcMarkSweepGC 
+            以最短回收时间为目标。基于标记清除。4个步骤：初始标记，并发标记，重新标记，并发清除。
+        - G1收集器 -XX:+
+            1.空间整合
+            2.可停顿预测。能指定时间段内垃圾收集器消耗的时间不能超过多少。
+            将堆划分为多个大小相等的独立区域。
+            步骤：
+                1.标记
+                2.Root Region Scanning. 回收survivor区。
+                3.并发标记。可被youngGC中断。发现区域对象都是垃圾，马上回收此区域。
+                4.Remark。
+                5.Copy/Clean up. 多线程清除失活对象。有STW.
+
+jvm调优命令：
+    - jps
+        显示指定系统内所有Hotspot虚拟机进程
+        jps -l -m -v
+    - jstat
+        监视虚拟机运行时状态信息，显示虚拟机进程中的类装载、内存、垃圾收集、JIT编译等运行数据
+        jstat -class 14752 //监视类装载、卸载数量、总空间以及耗时
+        jstat -compiler 14752 //JIT编译过的方法数量耗时等
+        jstat -gc 14752 //垃圾回收堆得行为统计
+        jstat -gccapacity 14752 //同gc，加上java堆各区用到的最大、最小空间
+        jstat -gcutil 14745 //同gc，不过输出的是已使用空间占总空间的百分比
+        jstat -gccause 14745 //同gcutil，附加最近两次垃圾回收事件的原因
+        jstat -gcnew 14745 //
+        jstat -gcold 14745 //
+    - jmap
+        生成heap dump文件。-XX:+HeapDumpOnOutOfMemoryError参数可以让虚拟机在出现OOM的时候自动生成dump文件。
+        参数option：
+            dump 生成堆存储快照
+            finalizerinfo 显示在F-Queue队列等待Finalizer线程执行finalizer方法的对象
+            heap 显示java堆详细信息
+            histo 显示堆中对象的统计信息
+            permstat
+        jmap -dump:live,format=b,file=dump.hprof 14455
+    - jhat
+        和jmap搭配使用，用来分析jmap生成的dump，内置html服务器，生成dump分析结果后，可浏览器浏览。默认7000端口
+        jhat -J-Xmx512m dump.hprof
+    - jstack
+        生成虚拟机当前时刻的线程快照（虚拟机内每一条线程正在执行的方法堆栈的集合）。目的是定位线程出现长时间停顿的原因。线程停顿时用jstack可查看各个线程的调用堆栈，从而知道线程在后台在做什么，或者等待什么资源。
+        jstack -l 14455|more
+    - jinfo
+        实时查看和调整虚拟机运行参数
+        jinfo -flag 14455
+
+
 ```
 76. gg
 77. gg
