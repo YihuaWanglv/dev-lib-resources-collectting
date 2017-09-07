@@ -2736,7 +2736,51 @@ class Test {
     }
 }
 ```
-77. gg
+77. maven快速创建java(spring boot)项目命令
+```
+mvn archetype:generate -DgroupId=com.company -DartifactId=appname -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+修改pom文件，增加spring-boot-starter相关依赖
+
+  <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>1.5.6.RELEASE</version>
+  </parent>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+
+src/main/java/Example.java:
+
+import org.springframework.boot.*;
+import org.springframework.boot.autoconfigure.*;
+import org.springframework.stereotype.*;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@EnableAutoConfiguration
+public class Example {
+
+    @RequestMapping("/")
+    String home() {
+        return "Hello World!";
+    }
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Example.class, args);
+    }
+
+}
+
+运行起来：
+
+mvn spring-boot:run
+```
 78. gg
 79. gg
 80. gg
