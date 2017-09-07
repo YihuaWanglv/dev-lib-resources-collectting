@@ -2781,11 +2781,344 @@ public class Example {
 
 mvn spring-boot:run
 ```
-78. gg
-79. gg
-80. gg
-81. gg
-82. gg
-83. gg
+78. centos yum install nginx faild:'No package nginx available' error CentOS 6.5
+
+nginx is not a part of base CentOS repository.
+
+But you can install EPEL repositiry to get nginx:
+
+yum install epel-release
+and then
+
+yum install nginx
+79. Some Regular expression examples
+```
+Some Regular expression examples:
+
+Positive Integers:
+
+^\d+$
+Negative Integers:
+
+^-\d+$
+Integer:
+
+^-?\d+$
+Positive Number:
+
+^\d*\.?\d+$
+Negative Number:
+
+^-\d*\.?\d+$
+Positive Number or Negative Number:
+
+^-?\d*\.{0,1}\d+$
+Phone number:
+
+^\+?[\d\s]{3,}$
+Phone with code:
+
+^\+?[\d\s]+\(?[\d\s]{10,}$
+Year 1900-2099:
+
+^(19|20)[\d]{2,2}$
+Date (dd mm yyyy, d/m/yyyy, etc.):
+
+^([1-9]|0[1-9]|[12][0-9]|3[01])\D([1-9]|0[1-9]|1[012])\D(19[0-9][0-9]|20[0-9][0-9])$
+IP v4:
+
+^(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]){3}$
+```
+
+82. 索引与优化like查询.
+
+```
+索引与优化like查询
+
+1. 使用下面的函数来进行模糊查询，如果出现的位置〉0，表示包含该字符串。
+
+    查询效率比like要高。
+
+    如果： table.field like  ‘%AAA%’ 可以改为 locate (‘AAA’ , table.field) > 0
+
+    LOCATE(substr,str)
+
+     　
+
+    POSITION(substr IN str)
+
+    返回子串substr在字符串str第一个出现的位置，如果substr不是在str里面，返回0。
+
+    使用instr
+
+    select count(*) from table t where instr(t.column,’xx’)> 0
+
+    这种查询效果很好，速度很快。
+
+    2. 查询%xx的记录
+
+    select count(c.c_ply_no) as COUNT
+
+    from Policy_Data_All c, Item_Data_All i
+
+    where c.c_ply_no = i.c_ply_no
+
+    and i.C_LCN_NO like ’%245′
+
+    在执行的时候，执行计划显示，消耗值，io值，cpu值均非常大，原因是like后面前模糊查询导致索引失效，进行全表扫描
+
+    解决方法：这种只有前模糊的sql可以改造如下写法
+
+    select count(c.c_ply_no) as COUNT
+
+    from Policy_Data_All c, Item_Data_All i
+
+    where c.c_ply_no = i.c_ply_no
+
+    and reverse(i.C_LCN_NO) like reverse(‘%245′)
+
+    使用翻转函数+like前模糊查询+建立翻转函数索引=走翻转函数索引，不走全扫描。有效降低消耗值，io值，cpu值这三个指标，尤其是io值的降低。
+
+
+```
+83. spring boot 优雅停机
+```
+Maven基本配置
+使用Maven的话，可以用以下方式配置：
+
+增加依赖
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+配置文件配置启用shutdown的HTTP访问
+#启用 shutdown endpoint的HTTP访问
+endpoints.shutdown.enabled=true
+#不需要用户名密码验证 
+endpoints.shutdown.sensitive=false
+
+curl -X POST localhost:port/shutdown发动post请求，即可优雅的停止应用：
+```
+84. spring boot maven项目打包运行和停止
+```
+1.获取到代码后，编译打包。使用命令：
+mvn clean package
+
+2.停止正在运行的spring boot应用。使用命令：
+curl -X POST {host}:{port}/shutdown
+
+{host}是应用部署的ip地址，{port}是应用部署的端口，替换成对应的参数即可
+
+3.运行应用。
+加入打包后的jar包名为app.jar，那么运行这个应用的命令是：
+java -jar app.jar
+push-consumer项目为例，maven的pom配置文件中配置了<finalName>push-client-web</finalName>，jar包将会固定打包为push-client-web.jar。
+以后台程序的方式启动，并指定输出日志的路径。最后使用命令：
+nohup java -jar push-client-web.jar < /dev/null > /data/logs/push-client-web.out 2>&1 &
+
+```
+85. docker
+```
+构建: docker build -t="dockerxman/docker-centos" github.com/xiongjungit/docker-centos
+
+使用
+docker run -it --rm dockerxman/docker-centos
+
+
+
+vim /etc/docker/daemon.json
+
+{
+    "registry-mirrors": ["https://v3djgke9.mirror.aliyuncs.com"]
+}
+
+https://v3djgke9.mirror.aliyuncs.com
+
+
+当docker run centos，出现：centos exec user process caused "permission denied"
+需要加一个参数：--privileged
+结果是：
+docker run --privileged -i -t centos /bin/bash
+
+说明：
+A permission denied within a container for a shared directory could be due to the fact that this shared directory is stored on a device. By default containers cannot access any devices. Adding the option $docker run --privileged allows the container to access all devices and performs Kernel calls. This is not considered as secure.
+
+A cleaner way to share device is to use the option docker run --device=/dev/sdb (if /dev/sdb is the device you want to share).
+
+From the man page:
+  --device=[]
+      Add a host device to the container (e.g. --device=/dev/sdc:/dev/xvdc:rwm)
+
+  --privileged=true|false
+      Give extended privileges to this container. The default is false.
+
+      By default, Docker containers are “unprivileged” (=false) and cannot, for example, run a Docker daemon inside the Docker container. This is because by default  a  container is not allowed to access any devices. A “privileged” container is given access to all devices.
+
+      When  the  operator  executes  docker run --privileged, Docker will enable access to all devices on the host as well as set some configuration in AppArmor to allow the container nearly all the same access to the host as processes running outside of a container on the host.
+大约在0.6版，privileged被引入docker。
+使用该参数，container内的root拥有真正的root权限。
+否则，container内的root只是外部的一个普通用户权限。
+privileged启动的容器，可以看到很多host上的设备，并且可以执行mount。
+甚至允许你在docker容器中启动docker容器。
+
+
+docker run --privileged -i -t -v /home/iyihua/upload:/mnt/software centos /bin/bash
+
+rpm -ivh jdk-8u65-linux-x64.rpm
+
+ba9bfbdcb72e
+
+docker commit ba9bfbdcb72e iyihua/centos-java
+
+docker commit 247761b653f1 iyihua/centos-v1.0
+
+
+[root@247761b653f1 /]# cat /etc/yum.repos.d/docker.repo
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+
+docker run --privileged -i -t -v /home/iyihua/upload:/mnt/software docker.io/ubuntu /bin/bash
+
+docker run -i -t -v /home/iyihua/upload:/mnt/software centos /bin/bash
+
+
+
+Get Docker CE on CentOS
+
+You can install Docker CE on CentOS in just three steps.
+
+Enterprise customers can also install Docker EE for CentOS.
+
+Prerequisites
+
+Docker CE is supported on CentOS 7.3 64-bit.
+
+1. Set up the repository
+
+Set up the Docker CE repository on CentOS:
+
+sudo yum install -y yum-utils
+
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+sudo yum makecache fast
+2. Get Docker CE
+
+Install the latest version of Docker CE on CentOS:
+
+sudo yum -y install docker-ce
+Start Docker:
+
+sudo systemctl start docker
+3. Test your Docker CE installation
+
+Test your installation:
+
+sudo docker run hello-world
+
+
+docker run -d -p 5000:5000 --restart=always --name registry \
+  -v `pwd`/data:/var/lib/registry \
+  registry:2
+
+
+
+
+- docker iptables failed no chain/target/match by that name
+- 重启docker即可:systemctl restart docker
+
+```
+86. Spacemacs+windows7 vim模式切换到emacs模式
+```
+临时从 vim 模式切换到 emacs 按键模式，按 C-z ，
+
+不再使用 vim 风格而是使用 emacs 风格的快捷键，修改 .spacemacs 如下：
+
+(defun dotspacemacs/init ()
+  (setq-default
+  dotspacemacs-editing-style 'emacs
+))
+如果是 vim 的 insert 模式下使用 emacs 风格快捷键，可以修改上面的代码为
+
+dotspacemacs-editing-style 'hybrid
+
+按\来在 vim-state 下执行一个 emacs 按键绑定，执行后马上返回 vim-state
+
+```
+87. spacemacs配置
+```
+(setq gc-cons-threshold 100000000)
+
+(defconst spacemacs-version          "0.200.9" "Spacemacs version.")
+(defconst spacemacs-emacs-min-version   "24.4" "Minimal version of Emacs.")
+
+(if (not (version<= spacemacs-emacs-min-version emacs-version))
+    (error (concat "Your version of Emacs (%s) is too old. "
+                   "Spacemacs requires Emacs version %s or above.")
+           emacs-version spacemacs-emacs-min-version)
+  (load-file (concat (file-name-directory load-file-name)
+                     "core/core-load-paths.el"))
+  (require 'core-spacemacs)
+  (spacemacs/init)
+  (configuration-layer/sync)
+  (spacemacs-buffer/display-startup-note)
+  (spacemacs/setup-startup-hook)
+  (require 'server)
+  (unless (server-running-p) (server-start)))
+
+;; 快速打开配置文件
+(defun open-init-file()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
+(global-set-key (kbd "<f2>") 'open-init-file)
+(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
+(global-hl-line-mode 1)
+(setq auto-mode-alist
+      (append
+       '(("\\.js\\'" . js2-mode))
+       auto-mode-alist))
+(evil-mode 0)
+```
+88. spacemacs
+```
+git clone https://github.com/syl20bnr/spacemacs C:\Users\Administrator\AppData\Roaming\.emacs.d
+
+git clone https://github.com/purcell/emacs.d.git C:\Users\Administrator\AppData\Roaming\.emacs.d
+```
+89. 方向
+```
+1、java基础不扎实。如:线程池几个核心参数不清楚。事务传播特性、隔离级别不清楚。 2、Java基础技术不足。集合，内存，对象管理等基础都不是很清楚。 3、数据库会使用，但涉及到一些基本的原理和技术，优化等场景不会处理。 4、对框架只是停留在使用层面，深度不足。 
+5、业务架构，系统规划设计等没有经验。
+
+```
+90. mysql 每月第一天 再转int
+```
+select UNIX_TIMESTAMP(DATE_ADD(curdate(),interval -day(curdate())+1 day));
+```
+91. g
+92. g
+93. g
+94. g
+95. g
+96. g
+97. g
+98. g
+99. g
+100. g
+101. 
 
 
